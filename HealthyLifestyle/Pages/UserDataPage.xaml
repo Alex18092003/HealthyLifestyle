@@ -55,21 +55,21 @@
 
                 <StackPanel Margin="10,10,10,10" Grid.Row="0" Grid.Column="1">
                     <TextBlock FontSize="25">Сколько вам лет?</TextBlock>
-                    <TextBox FontSize="25" Name="TextBoxAge"></TextBox>
+                    <TextBox TextChanged="TextBoxAge_TextChanged" PreviewTextInput="TextBoxAge_PreviewTextInput" FontSize="25" Name="TextBoxAge"></TextBox>
                     <TextBlock FontSize="20">лет</TextBlock>
                     <TextBlock FontSize="15" Foreground="Red" Name="TextBlockHintAge"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Margin="10,10,10,10" Grid.Row="1" Grid.Column="0">
                     <TextBlock FontSize="25" >Ваш рост?</TextBlock>
-                    <TextBox Name="TextBoxWeight" FontSize="25"></TextBox>
+                    <TextBox TextChanged="TextBoxWeight_TextChanged"  PreviewTextInput="TextBoxWeight_PreviewTextInput" Name="TextBoxWeight" FontSize="25"></TextBox>
                     <TextBlock FontSize="20">см</TextBlock>
                     <TextBlock FontSize="15" Foreground="Red" Name="TextBlockHintWeight"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Margin="10,10,10,10" Grid.Row="1" Grid.Column="1">
                     <TextBlock FontSize="25">Сколько вы весите?</TextBlock>
-                    <TextBox FontSize="25" Name="TextBoxHeight"></TextBox>
+                    <TextBox TextChanged="TextBoxHeight_TextChanged" PreviewTextInput="TextBoxHeight_PreviewTextInput" FontSize="25" Name="TextBoxHeight"></TextBox>
                     <TextBlock FontSize="20">кг</TextBlock>
                     <TextBlock FontSize="15" Foreground="Red" Name="TextBlockHintHeight"></TextBlock>
                 </StackPanel>

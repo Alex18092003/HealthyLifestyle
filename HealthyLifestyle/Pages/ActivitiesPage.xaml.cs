@@ -42,6 +42,8 @@ namespace HealthyLifestyle.Pages
             this.ListActivities.ItemsSource = _activities;
             ListOutput();
 
+           
+
         }
 
 

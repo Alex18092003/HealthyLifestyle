@@ -38,7 +38,7 @@
                         <RadioButton Margin="10,30,0,10"  FontSize="25" Name="CheckGoal2" Checked="CheckGoal2_Checked"></RadioButton>
                         <RadioButton Margin="10,30,0,10"  FontSize="25"  Name="CheckGoal3" Checked="CheckGoal3_Checked"></RadioButton>
                     </StackPanel>
-                    <ListView  Name="ListGoals" >
+                    <ListView Background="Transparent" BorderThickness="0"  Name="ListGoals" >
                         <ListView.ItemContainerStyle>
                             <Style TargetType="{x:Type ListViewItem}">
                                 <Setter Property="Template">

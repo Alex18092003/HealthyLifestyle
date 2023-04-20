@@ -42,7 +42,7 @@
                         <RadioButton Margin="10,30,0,10"  FontSize="25" Checked="CheckActivities4_Checked" Name="CheckActivities4"></RadioButton>
                         <RadioButton Margin="10,30,0,10"  FontSize="25" Checked="CheckActivities5_Checked" Name="CheckActivities5"></RadioButton>
                     </StackPanel>
-                    <ListView   Name="ListActivities">
+                    <ListView Background="Transparent" BorderThickness="0"   Name="ListActivities">
                         <ListView.ItemContainerStyle>
     <Style TargetType="{x:Type ListViewItem}">
         <Setter Property="Template">
