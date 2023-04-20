@@ -1,0 +1,67 @@
+﻿<Page x:Class="HealthyLifestyle.Pages.RecipesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthyLifestyle.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="667" d:DesignWidth="1200"
+      Title="RecipesPage">
+
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource="../Resources/Log.png"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2">Поиск рецептов</TextBlock>
+            <TextBox TextChanged="TextBoxSearchTitle_TextChanged" Grid.Row="1" Grid.ColumnSpan="2" Name="TextBoxSearchTitle" ></TextBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="2" Grid.Column="0" Name="ComboBoxMeals"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="2" Grid.Column="1" Name="ComboBoxRecipeTypes"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="3" Grid.Column="0" Name="ComboBoxSpecifics"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="3" Grid.Column="1" Name="ComboBoxPreparations"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="0" Name="ComboBoxKitchens"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="1" Name="ComboBoxDifficulties"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="0" Name="ComboBoxMinutesOfCooking"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="1" Name="ComboBoxDiets"></ComboBox>
+        </Grid>
+
+        <ListView Grid.Row="1" Name="ListRecipes" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid >
+                            <StackPanel Uid="{Binding RecipeId}" Name="STToTheSteps" MouseDown="STToTheSteps_MouseDown">
+                                <Image Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
+                                <TextBlock Text="{Binding Title}" ></TextBlock>
+                                <TextBlock Text="{Binding MinutesOfCooking}"  ></TextBlock>
+                                <TextBlock  Text="{Binding DietId}"  ></TextBlock>
+                            </StackPanel>
+                           
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+       
+
+    </Grid>
+</Page>

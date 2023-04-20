@@ -1,0 +1,42 @@
+﻿<Page x:Class="HealthyLifestyle.Pages.HomeAutorizationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthyLifestyle.Pages"
+      mc:Ignorable="d" 
+       d:DesignHeight="800" d:DesignWidth="1200"
+      Title="HomeAutorizationPage">
+
+    <Grid Background="#CFF3CD" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Image Grid.Column="1" Grid.Row="0"  Source="../Resources/Log.png" ></Image>
+
+        <Border Grid.Row="1" Grid.Column="1" Background="White"  CornerRadius="20,20,20,20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30"  Direction="0"/>
+            </Border.Effect>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Button FontSize="40"
+                        Margin="10,10,10,10" Grid.Row="0" Name="ButtonNewUser" Click="ButtonNewUser_Click">Новый пользователь</Button>
+                <Button FontSize="40" Margin="10,10,10,10"  Grid.Row="1" Name="ButtonUser" Click="ButtonUser_Click">Уже есть аккаунт</Button>
+                <TextBlock FontSize="25"  Margin="10,10,10,10"  Grid.Row="2">Приложение не содержит медицинские рекомендаций</TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

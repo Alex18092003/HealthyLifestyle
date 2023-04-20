@@ -1,0 +1,40 @@
+﻿<Page x:Class="HealthyLifestyle.Pages.StepsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthyLifestyle.Pages"
+      mc:Ignorable="d" 
+     d:DesignHeight="667" d:DesignWidth="1200"
+      Title="StepsPage">
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage" UriSource="../Resources/Log.png"/>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+           
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+     
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Row="0" Name="ListSteps">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid>
+                            <StackPanel>
+                                <TextBlock Text="{Binding StepNomen}"></TextBlock>
+                                <Image Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
+                                <TextBlock Text="{Binding Description}"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
