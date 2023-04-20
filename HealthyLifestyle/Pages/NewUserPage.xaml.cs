@@ -92,5 +92,21 @@ namespace HealthyLifestyle.Pages
         {
             FrameClass.frame.Navigate(new Pages.AutorizationPage());
         }
+
+        private void TextBoxLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TextBoxPassword.Focus();
+            }
+        }
+
+        private void TextBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                СheckUsers();
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace HealthyLifestyle.Pages
 {
@@ -102,6 +103,30 @@ namespace HealthyLifestyle.Pages
             }
         }
 
+        private void TextBoxAge_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TextBoxWeight.Focus();
+            }
+        }
+
+        private void TextBoxWeight_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TextBoxHeight.Focus();
+            }
+        }
+
+        private void TextBoxHeight_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Proverka();
+            }
+        }
+
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             FrameClass.frame.Navigate(new Pages.ActivitiesPage(login, password));
@@ -117,8 +142,7 @@ namespace HealthyLifestyle.Pages
             this.password = password;
             this.idActivities = idActivities;
         }
-
-        private void ButtonFurther_Click(object sender, RoutedEventArgs e)
+        private void Proverka()
         {
 
             if (CheckGenderMen.IsChecked == false && CheckGenderWomen.IsChecked == false)
@@ -165,6 +189,11 @@ namespace HealthyLifestyle.Pages
                 weight = TextBoxWeight.Text;
                 FrameClass.frame.Navigate(new Pages.UsersGoalPage(login, password, idActivities, idGenders, age, height, weight));
             }
+        }
+
+        private void ButtonFurther_Click(object sender, RoutedEventArgs e)
+        {
+            Proverka();
         }
 
         private void CheckGenderMen_Checked(object sender, RoutedEventArgs e)

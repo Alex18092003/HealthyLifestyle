@@ -40,7 +40,16 @@
             <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="3" Grid.Column="1" Name="ComboBoxPreparations"></ComboBox>
             <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="0" Name="ComboBoxKitchens"></ComboBox>
             <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="1" Name="ComboBoxDifficulties"></ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="0" Name="ComboBoxMinutesOfCooking"></ComboBox>
+            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="0" Name="ComboBoxMinutesOfCooking">
+                <ComboBoxItem>Время приготовления</ComboBoxItem>
+                <ComboBoxItem>до 10 мин</ComboBoxItem>
+                <ComboBoxItem>до 20 мин</ComboBoxItem>
+                <ComboBoxItem>до 30 мин</ComboBoxItem>
+                <ComboBoxItem>до 40 мин</ComboBoxItem>
+                <ComboBoxItem>до 50 мин</ComboBoxItem>
+                <ComboBoxItem>до 60 мин</ComboBoxItem>
+                <ComboBoxItem>более 60 мин</ComboBoxItem>
+            </ComboBox>
             <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="1" Name="ComboBoxDiets"></ComboBox>
         </Grid>
 

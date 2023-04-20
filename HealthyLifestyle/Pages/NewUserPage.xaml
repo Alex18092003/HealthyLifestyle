@@ -41,9 +41,9 @@
 
 
                 <TextBlock FontSize="25" Margin="10,10,0,0" Grid.Row="0">Придумайте Логин</TextBlock>
-                <TextBox FontSize="25" Margin="10,5,10,5" Grid.Row="1" Name="TextBoxLogin"></TextBox>
+                <TextBox KeyDown="TextBoxLogin_KeyDown" FontSize="25" Margin="10,5,10,5" Grid.Row="1" Name="TextBoxLogin"></TextBox>
                 <TextBlock FontSize="25" Margin="10,10,0,0"  Grid.Row="2">Придумайте Пароль</TextBlock>
-                <PasswordBox FontSize="25" Margin="10,5,10,5" Grid.Row="3" Name="TextBoxPassword"></PasswordBox>
+                <PasswordBox KeyDown="TextBoxPassword_KeyDown" FontSize="25" Margin="10,5,10,5" Grid.Row="3" Name="TextBoxPassword"></PasswordBox>
                 <TextBlock  FontSize="15" Margin="10,0,0,0" Foreground="Red" Name="TextBlockHint"  Grid.Row="4"></TextBlock>
                 <Button  FontSize="25"  Margin="10,10,10,10" Grid.Row="5" Name="ButtonRegistration" Click="ButtonRegistration_Click">Зарегистрировать аккаунт</Button>
                 <TextBlock  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6">Или</TextBlock>

@@ -32,7 +32,7 @@ namespace HealthyLifestyle.Pages
         KitchensCollection _kitchens = new KitchensCollection();
         DifficultiesCollection _difficulties = new DifficultiesCollection();
         DietsCollection _diets = new DietsCollection();
-        List<Recipes> filter = new List<Recipes>();
+
 
         public RecipesPage()
         {
@@ -52,7 +52,7 @@ namespace HealthyLifestyle.Pages
             LoadingPreparations();
             LoadingKitchens();
             LoadingDifficulties();
-            ComboBoxMinutesOfCooking.Items.Add("Время приготовления");
+            
             ComboBoxMinutesOfCooking.SelectedIndex = 0;
             LoadingDiets();
 
@@ -332,36 +332,131 @@ namespace HealthyLifestyle.Pages
         {
             List<Recipes> r = _recipes.ToList();
 
-            ListRecipes.ItemsSource = filter;
+            int indexMeals = ComboBoxMeals.SelectedIndex;
+            int indexRecipeTypes = ComboBoxRecipeTypes.SelectedIndex;
+            int indexSpecifics = ComboBoxSpecifics.SelectedIndex;
+            int indexPreparations = ComboBoxPreparations.SelectedIndex;
+            int indexKitchens = ComboBoxKitchens.SelectedIndex;
+            int indexDifficulties = ComboBoxDifficulties.SelectedIndex;
+            int indexMinutesOfCooking = ComboBoxMinutesOfCooking.SelectedIndex;
+
+            //фильтрация по приему пищи
+            if (indexMeals != 0)
+            {
+                r = r.Where(x => x.MealId == indexMeals).ToList();
+            }
+            //else
+            //{
+            //    r = _recipes.ToList();
+            //}
+
+            //фильтрация по типу рецепта
+            if (indexRecipeTypes != 0)
+            {
+                r = r.Where(x => x.RecipeType == indexRecipeTypes).ToList();
+            }
+            //else
+            //{
+            //    r = _recipes.ToList();
+            //}
+
+            //фильтрация по специфики
+            if (indexSpecifics != 0)
+            {
+                r = r.Where(x => x.SpecificsId == indexSpecifics).ToList();
+            }
+            //else
+            //{
+            //    r = _recipes.ToList();
+            //}
+
+            //фильтрация по способу приготовления
+            if (indexPreparations != 0)
+            {
+                r = r.Where(x => x.CookingId == indexPreparations).ToList();
+            }
+            //else
+            //{
+            //    r = _recipes.ToList();
+            //}
+
+            //фильтрация по кухне
+            if (indexKitchens != 0)
+            {
+                r = r.Where(x => x.KitchenId == indexKitchens).ToList();
+            }
+            //else
+            //{
+            //    r = _recipes.ToList();
+            //}
+
+            //фильтрация по сложности
+            if (indexDifficulties != 0)
+            {
+                r = r.Where(x => x.DifficultyId == indexDifficulties).ToList();
+            }
+            //else
+            //{
+            //    r = _recipes.ToList();
+            //}
+
+            //фильтрация по сложности
+            if (indexMinutesOfCooking != 0)
+            {
+                switch(ComboBoxMinutesOfCooking.SelectedIndex)
+                {
+                    case 1:
+                        {
+                            r = r.Where(x => x.MinutesOfCooking <=10).ToList();
+                        }
+                        break;
+                    case 2:
+                        {
+                            r = r.Where(x => x.MinutesOfCooking <= 20).ToList();
+                        }
+                        break;
+                    case 3:
+                        {
+                            r = r.Where(x => x.MinutesOfCooking <= 30).ToList();
+                        }
+                        break;
+                    case 4:
+                        {
+                            r = r.Where(x => x.MinutesOfCooking <= 40).ToList();
+                        }
+                        break;
+                    case 5:
+                        {
+                            r = r.Where(x => x.MinutesOfCooking <= 50).ToList();
+                        }
+                        break;
+                    case 6:
+                        {
+                            r = r.Where(x => x.MinutesOfCooking <= 60).ToList();
+                        }
+                        break;
+                    case 7:
+                        {
+                            r = r.Where(x => x.MinutesOfCooking > 60).ToList();
+                        }
+                        break;
+                }
+            }
+            //else
+            //{
+            //    r = _recipes.ToList();
+            //}
+
             //поиск по названию
             if (!string.IsNullOrWhiteSpace(TextBoxSearchTitle.Text))
             {
-                filter = _recipes.Where(x => x.Title.ToLower().Contains(TextBoxSearchTitle.Text.ToLower())).ToList();
-            }
-
-            //Поиск по питанию
-            //string meals = ComboBoxMeals.SelectedValue.ToString();
-            int indexMeals = ComboBoxMeals.SelectedIndex;
-            List<Meals> m = _meals.ToList();
-            if(indexMeals!= 0)
-            {
-                filter = new List<Recipes>();
-                foreach(Meals meals1 in m)
-                {
-                    if(meals1.MealId == indexMeals)
-                    {
-                        filter.Add((Recipes)meals1.Recipes);
-                    }
-                }
-                    
-            }
-            else
-            {
-                filter = _recipes.ToList();
+                r = r.Where(x => x.Title.ToLower().Contains(TextBoxSearchTitle.Text.ToLower())).ToList();
             }
 
 
-            if (filter.Count == 0)
+
+            ListRecipes.ItemsSource = r;
+            if (r.Count == 0)
             {
                 MessageBox.Show("Нет записей", "Сообщение");
             }
