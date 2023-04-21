@@ -54,15 +54,17 @@
         </Grid>
 
         <ListView Grid.Row="1" Name="ListRecipes" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
+            <ListView.ItemTemplate >
+                <DataTemplate >
                     <Border>
-                        <Grid >
-                            <StackPanel Uid="{Binding RecipeId}" Name="STToTheSteps" MouseDown="STToTheSteps_MouseDown">
+                        <Grid Name="STToTheSteps" Uid="{Binding RecipeId}" MouseDown="STToTheSteps_MouseDown" >
+                            <StackPanel  >
                                 <Image Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
                                 <TextBlock Text="{Binding Title}" ></TextBlock>
+                                <TextBlock>Калорийность на 100г.</TextBlock>
+                                <TextBlock Text="{Binding Calories}"  ></TextBlock>
                                 <TextBlock Text="{Binding MinutesOfCooking}"  ></TextBlock>
-                                <TextBlock  Text="{Binding DietId}"  ></TextBlock>
+                                <TextBlock  Text="{Binding Description}" TextWrapping="Wrap" ></TextBlock>
                             </StackPanel>
                            
                         </Grid>

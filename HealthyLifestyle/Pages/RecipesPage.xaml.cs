@@ -42,9 +42,9 @@ namespace HealthyLifestyle.Pages
             client.DefaultRequestHeaders.Accept.Add(
                            new MediaTypeWithQualityHeaderValue("application/json"));
 
-
-            this.ListRecipes.ItemsSource = _recipes;
             ListOutput();
+            ListRecipes.ItemsSource = _recipes;
+            
 
             LoadingMeals();
             LoadingRecipeTypes();
@@ -52,7 +52,6 @@ namespace HealthyLifestyle.Pages
             LoadingPreparations();
             LoadingKitchens();
             LoadingDifficulties();
-            
             ComboBoxMinutesOfCooking.SelectedIndex = 0;
             LoadingDiets();
 
@@ -317,13 +316,7 @@ namespace HealthyLifestyle.Pages
 
         }
 
-        private void STToTheSteps_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            StackPanel st = (StackPanel)sender;
-            int id = Convert.ToInt32( st.Uid);
-            Recipes recipes = _recipes.FirstOrDefault(x => x.RecipeId == id);
-            Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage(recipes));
-        }
+ 
 
         /// <summary>
         /// Метод для фильтрации рецептов
@@ -331,6 +324,7 @@ namespace HealthyLifestyle.Pages
         private void Filter()
         {
             List<Recipes> r = _recipes.ToList();
+           
 
             int indexMeals = ComboBoxMeals.SelectedIndex;
             int indexRecipeTypes = ComboBoxRecipeTypes.SelectedIndex;
@@ -345,60 +339,41 @@ namespace HealthyLifestyle.Pages
             {
                 r = r.Where(x => x.MealId == indexMeals).ToList();
             }
-            //else
-            //{
-            //    r = _recipes.ToList();
-            //}
-
+          
             //фильтрация по типу рецепта
             if (indexRecipeTypes != 0)
             {
                 r = r.Where(x => x.RecipeType == indexRecipeTypes).ToList();
             }
-            //else
-            //{
-            //    r = _recipes.ToList();
-            //}
+          
 
             //фильтрация по специфики
             if (indexSpecifics != 0)
             {
                 r = r.Where(x => x.SpecificsId == indexSpecifics).ToList();
             }
-            //else
-            //{
-            //    r = _recipes.ToList();
-            //}
+         
 
             //фильтрация по способу приготовления
             if (indexPreparations != 0)
             {
                 r = r.Where(x => x.CookingId == indexPreparations).ToList();
             }
-            //else
-            //{
-            //    r = _recipes.ToList();
-            //}
+          
 
             //фильтрация по кухне
             if (indexKitchens != 0)
             {
                 r = r.Where(x => x.KitchenId == indexKitchens).ToList();
             }
-            //else
-            //{
-            //    r = _recipes.ToList();
-            //}
+         
 
             //фильтрация по сложности
             if (indexDifficulties != 0)
             {
                 r = r.Where(x => x.DifficultyId == indexDifficulties).ToList();
             }
-            //else
-            //{
-            //    r = _recipes.ToList();
-            //}
+        
 
             //фильтрация по сложности
             if (indexMinutesOfCooking != 0)
@@ -442,11 +417,7 @@ namespace HealthyLifestyle.Pages
                         break;
                 }
             }
-            //else
-            //{
-            //    r = _recipes.ToList();
-            //}
-
+         
             //поиск по названию
             if (!string.IsNullOrWhiteSpace(TextBoxSearchTitle.Text))
             {
@@ -472,6 +443,14 @@ namespace HealthyLifestyle.Pages
         private void TextBoxSearchTitle_TextChanged(object sender, TextChangedEventArgs e)
         {
             Filter();
+        }
+
+        private void STToTheSteps_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Grid st = (Grid)sender;
+            int id = Convert.ToInt32(st.Uid);
+            Recipes recipes = _recipes.FirstOrDefault(x => x.RecipeId == id);
+            Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage(recipes));
         }
     }
 }
