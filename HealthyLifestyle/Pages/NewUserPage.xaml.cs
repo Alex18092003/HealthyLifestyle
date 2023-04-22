@@ -23,29 +23,17 @@ namespace HealthyLifestyle.Pages
     /// </summary>
     public partial class NewUserPage : Page
     {
-        HttpClient client = new HttpClient();
-        UsersCollection _users = new UsersCollection();
-
         public NewUserPage()
         {
             InitializeComponent();
-            client.BaseAddress = new Uri("https://iis.ngknn.ru/ngknn/лебедевааф/");
-            client.DefaultRequestHeaders.Accept.Add(
-                           new MediaTypeWithQualityHeaderValue("application/json"));
+
         }
 
         /// <summary>
         /// метод для проверки логина и пароля пользователя
         /// </summary>
-        private async void СheckUsers()
+        private void СheckUsers()
         {
-            try
-            {
-                var response = await client.GetAsync("api/Users");
-                response.EnsureSuccessStatusCode();
-                var users = await response.Content.ReadAsAsync<ObservableCollection<Users>>();
-                _users.CopyFrom(users);
-
                 if (TextBoxPassword.Password == "" || TextBoxLogin.Text == "")
                 {
 
@@ -54,7 +42,7 @@ namespace HealthyLifestyle.Pages
                 }
                 else
                 {
-                    Users us = _users.FirstOrDefault(x => x.Login == TextBoxLogin.Text);
+                    Users us = DB.entities.Users.FirstOrDefault(x => x.Login == TextBoxLogin.Text);
                     if (us == null)
                     {
                         string login = TextBoxLogin.Text;
@@ -68,18 +56,6 @@ namespace HealthyLifestyle.Pages
                      
                     }
                 }
-
-            }
-            catch (Newtonsoft.Json.JsonException jEx)
-            {
-                // This exception indicates a problem deserializing the request body.
-                MessageBox.Show(jEx.Message);
-            }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
 
         private void ButtonRegistration_Click(object sender, RoutedEventArgs e)

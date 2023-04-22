@@ -25,6 +25,8 @@ namespace HealthyLifestyle
             InitializeComponent();
             FrameClass.frame = Frame;
             FrameClass.frame.Navigate(new Pages.HomeAutorizationPage());
+
+            DB.entities = new Entities();
         }
     }
 }

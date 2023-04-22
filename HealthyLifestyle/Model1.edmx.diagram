@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5e7e222b3af145cda0db0e7556141182" Name="Diagram1">
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Activities" Width="1.5" PointX="0.75" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.DailyRation" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Diets" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Difficulties" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Genders" Width="1.5" PointX="0.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Goals" Width="1.5" PointX="0.75" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.IngredientForRecipe" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Ingredients" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Kitchens" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Meals" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Preparations" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Recipes" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.RecipeTypes" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Specifics" Width="1.5" PointX="0.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Steps" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.UnitsOfMeasurement" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="P_Lebedeva_DiplomModel.Users" Width="1.5" PointX="3" PointY="24.25" IsExpanded="true" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Users_Activities" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_DailyRation_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_DailyRation_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Recipes_Diets" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Recipes_Difficulties" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Users_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Users_Goals" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_IngredientForRecipe_Ingredients" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_IngredientForRecipe_Recipes" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_IngredientForRecipe_UnitsOfMeasurement" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Recipes_Kitchens" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Recipes_Meals" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Recipes_Preparations" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Recipes_RecipeTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Recipes_Specifics" ManuallyRouted="false" />
+        <AssociationConnector Association="P_Lebedeva_DiplomModel.FK_Steps_Recipes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

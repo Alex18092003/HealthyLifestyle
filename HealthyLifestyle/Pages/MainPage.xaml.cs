@@ -22,9 +22,6 @@ namespace HealthyLifestyle.Pages
     /// </summary>
     public partial class MainPage : Page
     {
-       
-      
-        HttpClient client = new HttpClient();
         Users us;
 
         public MainPage(Users us)

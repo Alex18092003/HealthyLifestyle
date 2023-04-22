@@ -22,9 +22,6 @@ namespace HealthyLifestyle.Pages
     /// </summary>
     public partial class ActivitiesPage : Page
     {
-        HttpClient client = new HttpClient();
-        ActivitiesCollection _activities = new ActivitiesCollection();
-
         public int idActivities;
         public string login, password;
 
@@ -33,44 +30,8 @@ namespace HealthyLifestyle.Pages
             InitializeComponent();
             this.login = login;
             this.password = password;
-
-            client.BaseAddress = new Uri("https://iis.ngknn.ru/ngknn/лебедевааф/");
-            client.DefaultRequestHeaders.Accept.Add(
-                           new MediaTypeWithQualityHeaderValue("application/json"));
-
-
-            this.ListActivities.ItemsSource = _activities;
-            ListOutput();
-
+            this.ListActivities.ItemsSource = DB.entities.Activities.ToList();
            
-
-        }
-
-
-        /// <summary>
-        /// метод для загрузки листа
-        /// </summary>
-        private async void ListOutput()
-        {
-            try
-            {
-
-                var response = await client.GetAsync("api/Activities");
-                response.EnsureSuccessStatusCode(); // Throw on error code.
-
-                var activities = await response.Content.ReadAsAsync<IEnumerable<Activities>>();
-                _activities.CopyFrom(activities);
-            }
-            catch (Newtonsoft.Json.JsonException jEx)
-            {
-                // This exception indicates a problem deserializing the request body.
-                MessageBox.Show(jEx.Message);
-            }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
         }
 
         private void ButtonFurther_Click(object sender, RoutedEventArgs e)

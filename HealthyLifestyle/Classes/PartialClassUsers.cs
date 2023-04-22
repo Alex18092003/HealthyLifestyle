@@ -6,29 +6,8 @@ using System.Threading.Tasks;
 
 namespace HealthyLifestyle
 {
-    public class Users
+    public partial class Users
     {
-        public int UserId { get; set; }
-        public Nullable<int> GenderId { get; set; }
-        public string Login { get; set; }
-        public Nullable<double> Weight { get; set; }
-        public Nullable<double> Height { get; set; }
-        public Nullable<int> ActivityId { get; set; }
-        public Nullable<int> GoalId { get; set; }
-        public Nullable<int> Calories { get; set; }
-        public Nullable<double> Squirrels { get; set; }
-        public Nullable<int> DateOfBirth { get; set; }
-        public string Password { get; set; }
-        public Nullable<double> Fats { get; set; }
-        public Nullable<double> Carbohydrates { get; set; }
-
-        public virtual Activities Activities { get; set; }
-    
-        public virtual ICollection<DailyRation> DailyRation { get; set; }
-        public virtual Genders Genders { get; set; }
-        public virtual Goals Goals { get; set; }
-
-
         public string CaloriesUsers
         {
             get
