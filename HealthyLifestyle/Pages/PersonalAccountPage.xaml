@@ -13,14 +13,19 @@
         <StackPanel>
             <TextBlock>Это ваш профиль. Обновляйте данные о себе по ходе процесса.</TextBlock>
         <TextBlock>Рост</TextBlock>
-        <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxWeidth"></TextBox>
+        <TextBox PreviewTextInput="TextBoxWeidth_PreviewTextInput" IsEnabled="False" Width="100" Height="30" Name="TextBoxWeidth"></TextBox>
         <TextBlock>Вес</TextBlock>
-            <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxHeight"></TextBox>
+            <TextBox PreviewTextInput="TextBoxHeight_PreviewTextInput"  IsEnabled="False" Width="100" Height="30" Name="TextBoxHeight"></TextBox>
             <TextBlock>Возраст</TextBlock>
-            <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxAge"></TextBox>
-            <TextBlock>Ккал/день</TextBlock>
-            <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxCal"></TextBox>
+            <TextBox PreviewTextInput="TextBoxAge_PreviewTextInput"  IsEnabled="False" Width="100" Height="30" Name="TextBoxAge"></TextBox>
+           
+            <TextBlock>Образ жизни</TextBlock>
+            <ComboBox  IsEnabled="False" Width="100" Height="30" Name="ComboBoxActivities"></ComboBox>
+            <TextBlock>Цель</TextBlock>
+            <ComboBox  IsEnabled="False" Width="100" Height="30" Name="ComboBoxGoal"></ComboBox>
+            <TextBlock Name="TextBoxHint" FontSize="15" Foreground="Red"></TextBlock>
             <Button Name="ButtonEdit" Click="ButtonEdit_Click" Content="Редактировать данные"></Button>
+            <Button Visibility="Collapsed" Name="ButtonAdd" Click="ButtonAdd_Click" Content="Сохранить изменения"></Button>
             <Button Name="ButtonEditLogin" Click="ButtonEditLogin_Click">Изменить логин и пароль</Button>
         </StackPanel>
     </Grid>

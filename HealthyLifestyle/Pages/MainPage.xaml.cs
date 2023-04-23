@@ -57,7 +57,7 @@ namespace HealthyLifestyle.Pages
 
         private void BButtonPersonalAccount_Click(object sender, RoutedEventArgs e)
         {
-            FrameClass.frame.Navigate(new Pages.PersonalAccountPage(us));
+            Classes.FrameClassTwo.frame.Navigate(new Pages.PersonalAccountPage(us));
         }
 
         private void ButtonExe_Click(object sender, RoutedEventArgs e)

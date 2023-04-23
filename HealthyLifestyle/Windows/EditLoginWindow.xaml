@@ -13,8 +13,9 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Grid.Row="0" HorizontalAlignment="Center">
             <TextBlock Text="Редактирование логина и пароля" />
+            <TextBlock Name="TextBoxHint" FontSize="15" Foreground="Red"></TextBlock>
         </StackPanel>
         <Grid Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
