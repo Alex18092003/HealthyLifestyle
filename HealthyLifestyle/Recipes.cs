@@ -35,7 +35,10 @@ namespace HealthyLifestyle
         public Nullable<int> DifficultyId { get; set; }
         public Nullable<int> CookingId { get; set; }
         public Nullable<int> KitchenId { get; set; }
-        public Nullable<int> Calories { get; set; }
+        public Nullable<double> Calories { get; set; }
+        public Nullable<double> Squirrels { get; set; }
+        public Nullable<double> Fats { get; set; }
+        public Nullable<double> Carbohydrates { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DailyRation> DailyRation { get; set; }

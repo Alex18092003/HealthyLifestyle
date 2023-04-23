@@ -1,20 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HealthyLifestyle.Pages
 {
@@ -27,9 +16,70 @@ namespace HealthyLifestyle.Pages
         public RecipesPage()
         {
             InitializeComponent();
+            Conclusion();
+        }
 
+        private void Conclusion()
+        {
             ListRecipes.ItemsSource = DB.entities.Recipes.ToList();
 
+            List<Meals> types = DB.entities.Meals.ToList();
+            ComboBoxMeals.Items.Add("Прием пищи");
+            for (int i = 0; i < types.Count; i++)
+            {
+                ComboBoxMeals.Items.Add(types[i].Title);
+            }
+
+            List<RecipeTypes> recipeTypes = DB.entities.RecipeTypes.ToList();
+            ComboBoxRecipeTypes.Items.Add("Тип рецепта");
+            for (int i = 0; i < recipeTypes.Count; i++)
+            {
+                ComboBoxRecipeTypes.Items.Add(recipeTypes[i].Title);
+            }
+
+            List<Specifics> specifics = DB.entities.Specifics.ToList();
+            ComboBoxSpecifics.Items.Add("Специфика");
+            for (int i = 0; i < specifics.Count; i++)
+            {
+                ComboBoxSpecifics.Items.Add(specifics[i].Title);
+            }
+
+            List<Preparations> preparations = DB.entities.Preparations.ToList();
+            ComboBoxPreparations.Items.Add("Приготовление");
+            for (int i = 0; i < preparations.Count; i++)
+            {
+                ComboBoxPreparations.Items.Add(preparations[i].Title);
+            }
+
+            List<Kitchens> kitchens = DB.entities.Kitchens.ToList();
+            ComboBoxKitchens.Items.Add("Кухня");
+            for (int i = 0; i < kitchens.Count; i++)
+            {
+                ComboBoxKitchens.Items.Add(kitchens[i].Title);
+            }
+
+            List<Difficulties> difficulties = DB.entities.Difficulties.ToList();
+            ComboBoxDifficulties.Items.Add("Сложность");
+            for (int i = 0; i < difficulties.Count; i++)
+            {
+                ComboBoxDifficulties.Items.Add(difficulties[i].Title);
+            }
+
+            List<Diets> diets = DB.entities.Diets.ToList();
+            ComboBoxDiets.Items.Add("Диеты");
+            for (int i = 0; i < diets.Count; i++)
+            {
+                ComboBoxDiets.Items.Add(diets[i].Title);
+            }
+
+            ComboBoxMeals.SelectedIndex = 0;
+            ComboBoxRecipeTypes.SelectedIndex = 0;
+            ComboBoxSpecifics.SelectedIndex = 0;
+            ComboBoxPreparations.SelectedIndex = 0;
+            ComboBoxKitchens.SelectedIndex = 0;
+            ComboBoxDifficulties.SelectedIndex = 0;
+            ComboBoxMinutesOfCooking.SelectedIndex = 0;
+            ComboBoxDiets.SelectedIndex = 0;
         }
 
 
@@ -39,7 +89,6 @@ namespace HealthyLifestyle.Pages
         private void Filter()
         {
             List<Recipes> r = DB.entities.Recipes.ToList();
-           
 
             int indexMeals = ComboBoxMeals.SelectedIndex;
             int indexRecipeTypes = ComboBoxRecipeTypes.SelectedIndex;
@@ -48,56 +97,64 @@ namespace HealthyLifestyle.Pages
             int indexKitchens = ComboBoxKitchens.SelectedIndex;
             int indexDifficulties = ComboBoxDifficulties.SelectedIndex;
             int indexMinutesOfCooking = ComboBoxMinutesOfCooking.SelectedIndex;
+            int indexDiets = ComboBoxDiets.SelectedIndex;
 
             //фильтрация по приему пищи
-            if (indexMeals != 0)
+            if (indexMeals > 0)
             {
                 r = r.Where(x => x.MealId == indexMeals).ToList();
             }
-          
+
+            //фильтрация по диете
+            if (indexDiets > 0)
+            {
+                r = r.Where(x => x.DietId == indexDiets).ToList();
+            }
+
+
             //фильтрация по типу рецепта
-            if (indexRecipeTypes != 0)
+            if (indexRecipeTypes > 0)
             {
                 r = r.Where(x => x.RecipeType == indexRecipeTypes).ToList();
             }
-          
+
 
             //фильтрация по специфики
-            if (indexSpecifics != 0)
+            if (indexSpecifics > 0)
             {
                 r = r.Where(x => x.SpecificsId == indexSpecifics).ToList();
             }
-         
+
 
             //фильтрация по способу приготовления
-            if (indexPreparations != 0)
+            if (indexPreparations > 0)
             {
                 r = r.Where(x => x.CookingId == indexPreparations).ToList();
             }
-          
+
 
             //фильтрация по кухне
-            if (indexKitchens != 0)
+            if (indexKitchens > 0)
             {
                 r = r.Where(x => x.KitchenId == indexKitchens).ToList();
             }
-         
+
 
             //фильтрация по сложности
-            if (indexDifficulties != 0)
+            if (indexDifficulties > 0)
             {
                 r = r.Where(x => x.DifficultyId == indexDifficulties).ToList();
             }
-        
+
 
             //фильтрация по сложности
-            if (indexMinutesOfCooking != 0)
+            if (indexMinutesOfCooking > 0)
             {
-                switch(ComboBoxMinutesOfCooking.SelectedIndex)
+                switch (ComboBoxMinutesOfCooking.SelectedIndex)
                 {
                     case 1:
                         {
-                            r = r.Where(x => x.MinutesOfCooking <=10).ToList();
+                            r = r.Where(x => x.MinutesOfCooking <= 10).ToList();
                         }
                         break;
                     case 2:
@@ -132,22 +189,18 @@ namespace HealthyLifestyle.Pages
                         break;
                 }
             }
-         
+
             //поиск по названию
             if (!string.IsNullOrWhiteSpace(TextBoxSearchTitle.Text))
             {
                 r = r.Where(x => x.Title.ToLower().Contains(TextBoxSearchTitle.Text.ToLower())).ToList();
             }
 
-
-
             ListRecipes.ItemsSource = r;
             if (r.Count == 0)
             {
                 MessageBox.Show("Нет записей", "Сообщение");
             }
-            
-           
         }
 
         private void ComboBoxMeals_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -167,5 +220,6 @@ namespace HealthyLifestyle.Pages
             Recipes recipes = DB.entities.Recipes.FirstOrDefault(x => x.RecipeId == id);
             Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage(recipes));
         }
+
     }
 }

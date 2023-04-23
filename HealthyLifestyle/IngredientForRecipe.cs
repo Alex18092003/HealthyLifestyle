@@ -18,6 +18,7 @@ namespace HealthyLifestyle
         public int IngredientId { get; set; }
         public int RecipeId { get; set; }
         public Nullable<int> UnitsOfMeasurementId { get; set; }
+        public Nullable<double> Quantity { get; set; }
     
         public virtual Ingredients Ingredients { get; set; }
         public virtual Recipes Recipes { get; set; }

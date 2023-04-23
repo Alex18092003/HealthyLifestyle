@@ -53,6 +53,7 @@
             <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="1" Name="ComboBoxDiets"></ComboBox>
         </Grid>
 
+        
         <ListView Grid.Row="1" Name="ListRecipes" >
             <ListView.ItemTemplate >
                 <DataTemplate >

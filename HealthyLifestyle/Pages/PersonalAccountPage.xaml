@@ -1,0 +1,27 @@
+﻿<Page x:Class="HealthyLifestyle.Pages.PersonalAccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthyLifestyle.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PersonalAccountPage">
+
+    <Grid>
+
+        <StackPanel>
+            <TextBlock>Это ваш профиль. Обновляйте данные о себе по ходе процесса.</TextBlock>
+        <TextBlock>Рост</TextBlock>
+        <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxWeidth"></TextBox>
+        <TextBlock>Вес</TextBlock>
+            <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxHeight"></TextBox>
+            <TextBlock>Возраст</TextBlock>
+            <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxAge"></TextBox>
+            <TextBlock>Ккал/день</TextBlock>
+            <TextBox IsEnabled="False" Width="100" Height="30" Name="TextBoxCal"></TextBox>
+            <Button Name="ButtonEdit" Click="ButtonEdit_Click" Content="Редактировать данные"></Button>
+            <Button Name="ButtonEditLogin" Click="ButtonEditLogin_Click">Изменить логин и пароль</Button>
+        </StackPanel>
+    </Grid>
+</Page>

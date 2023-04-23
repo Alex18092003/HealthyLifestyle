@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HealthyLifestyle.Pages
 {
@@ -26,8 +15,28 @@ namespace HealthyLifestyle.Pages
             InitializeComponent();
 
             this.us = us;
-            TextBlockCalories.Text = us.CaloriesUsers;
+            TextBlockCalories.Text = Convert.ToString(us.CaloriesUsers);
+            us.GenderId = us.GenderId;
+            us.Login = us.Login;
+            us.Weight = us.Weight;
+            us.Height = us.Height;
+            us.ActivityId = us.ActivityId;
+            us.GoalId = us.GoalId;
+            us.Squirrels = us.Squirrels;
+            us.DateOfBirth = us.DateOfBirth;
+            us.Password = us.Password;
+            us.Fats = us.Fats;
+            us.Carbohydrates = us.Carbohydrates;
+            us.Calories = us.Calories;
+            s();
 
+
+        }
+
+        private void s()
+        {
+            us.Calories = us.CaloriesUsers;
+            DB.entities.SaveChanges();
         }
     }
 }

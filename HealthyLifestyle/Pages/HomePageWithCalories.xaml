@@ -9,7 +9,6 @@
       Title="HomePageWithCalories">
 
     <Grid>
-        <TextBlock  FontSize="25" Name="TextBlockCalories" Text="{Binding CaloriesUsers}"></TextBlock>
-        
+        <TextBlock  FontSize="25" Name="TextBlockCalories" ></TextBlock>
     </Grid>
 </Page>

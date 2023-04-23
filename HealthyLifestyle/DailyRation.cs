@@ -18,6 +18,10 @@ namespace HealthyLifestyle
         public int UserId { get; set; }
         public int RecepeId { get; set; }
         public System.DateTime Date { get; set; }
+        public Nullable<double> Calories { get; set; }
+        public Nullable<double> Squirrels { get; set; }
+        public Nullable<double> Fats { get; set; }
+        public Nullable<double> Carbohydrates { get; set; }
     
         public virtual Recipes Recipes { get; set; }
         public virtual Users Users { get; set; }

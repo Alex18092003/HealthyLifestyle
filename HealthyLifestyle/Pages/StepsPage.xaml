@@ -13,12 +13,13 @@
     </Page.Resources>
 
     <ScrollViewer VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible">
-        <Grid>
+        <Grid Background="#CFF3CD">
             <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
-        </Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
@@ -27,7 +28,7 @@
             <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <Image Grid.Column="0" Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
@@ -35,11 +36,15 @@
                     <TextBlock   Name="TextTitleRecipes" TextWrapping="Wrap"></TextBlock>
                     <TextBlock  Name="TextDescriptionRecipes"  TextWrapping="Wrap"></TextBlock>
                     <TextBlock  Name="TextMinutesRecipes"  ></TextBlock>
+                    <TextBlock  Name="TextComment"  ></TextBlock>
                 </StackPanel>
             </Grid>
 
-            <Grid Grid.Row="1">
-                <ListView  Background="Transparent" BorderThickness="0"   Name="ListIngredients" >
+            <Border Margin="180,20,180,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30"  Direction="0"/>
+                </Border.Effect>
+                <ListView Margin="15" Grid.Column="1" Name="ListIngredientsForRecepes" Background="Transparent" BorderThickness="0" >
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Setter Property="Template">
@@ -54,19 +59,95 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border>
-                                <Grid>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Title}"></TextBlock>
+                                <Grid >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Grid.Column="0" >
+                                        <TextBlock  Text="{Binding Ingredients.Title}"></TextBlock>
                                     </StackPanel>
+
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Quantity}"></TextBlock>
+                                        <TextBlock  Text="{Binding UnitsOfMeasurement.Title}"></TextBlock>
+                                    </StackPanel>
+                                    
+                                   
+
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </Grid>
+            </Border>
 
+
+            <Border Margin="150,20,150,20" Grid.Row="2" Background="White" CornerRadius="20,20,20,20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30"  Direction="0"/>
+                </Border.Effect>
+                <Grid Margin="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Grid.Row="0" Grid.Column="0">
+                        <TextBlock>Ккал</TextBlock>
+                        <TextBox Name="TextBoxCaloriesIn100G"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="0" Grid.Column="1">
+                        <TextBlock>Вес</TextBlock>
+                        <TextBox Name="TextBox100g"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="0" Grid.Column="2">
+                        <TextBlock>Прием пищи</TextBlock>
+                        <ComboBox Name="TextBoxMeal"></ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="0">
+                        <TextBlock>Белки</TextBlock>
+                        <TextBox Name="TextBoxSquirrels"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <TextBlock>Жиры</TextBlock>
+                        <TextBox Name="TextBoxFat"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Grid.Column="2">
+                        <TextBlock>Углеводы</TextBlock>
+                        <TextBox Name="TextBoxCarbohydrates"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
+                        <TextBlock>Дата</TextBlock>
+                        <DatePicker IsEnabled="False" Name="DataToday"></DatePicker>
+                    </StackPanel>
+
+                    <Button Name="ButtonAddDaily" Click="ButtonAddDaily_Click" Grid.Row="3" Grid.ColumnSpan="3">Добавить прием</Button>
+
+                </Grid>
+                
+            </Border>
+
+            <Border Margin="10" Grid.Row="3" Background="White" CornerRadius="20,20,20,20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30"  Direction="0"/>
+                </Border.Effect>
             <Grid Grid.Row="2">
-                <ListView Background="Transparent" BorderThickness="0"  Name="ListSteps">
+                    <ListView Margin="15" Background="Transparent" BorderThickness="0"  Name="ListSteps">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Setter Property="Template">
@@ -81,18 +162,19 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border>
-                                <Grid>
+                                    <Grid >
                                     <StackPanel>
                                         <TextBlock Text="{Binding StepNomen}"></TextBlock>
-                                        <Image Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
-                                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"></TextBlock>
-                                    </StackPanel>
+                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap"></TextBlock>
+                                            <Image Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
+                                        </StackPanel>
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
+            </Border>
             
         </Grid>
     </ScrollViewer>

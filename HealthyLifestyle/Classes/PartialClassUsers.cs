@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HealthyLifestyle
 {
     public partial class Users
     {
-        public string CaloriesUsers
+        double RSK;
+        public double CaloriesUsers
         {
             get
             {
@@ -17,7 +14,7 @@ namespace HealthyLifestyle
                     double c = 10 * Convert.ToDouble(Height);
                     double cc = 6.25 * Convert.ToDouble(Weight);
                     double ccc = 5 * Convert.ToDouble(DateOfBirth);
-                    double RSK = c + cc - ccc - 161;
+                    RSK = c + cc - ccc - 161;
                     if (ActivityId == 1)
                     {
                         RSK = RSK * 1.2;
@@ -42,18 +39,18 @@ namespace HealthyLifestyle
                     if (GoalId == 1)
                     {
                         double percent = RSK / 100;
-                        double calories = RSK - (percent * 20);
-                        return Convert.ToString(calories);
+                        RSK = RSK - (percent * 20);
+                        return RSK;
                     }
                     else if (GoalId == 2)
                     {
                         double percent = RSK / 100;
-                        double calories = RSK + (percent * 20);
-                        return Convert.ToString(calories);
+                        RSK = RSK + (percent * 20);
+                        return RSK;
                     }
                     else
                     {
-                        return Convert.ToString(RSK);
+                        return RSK;
                     }
                 }
                 else
@@ -61,7 +58,7 @@ namespace HealthyLifestyle
                     double c = 10 * Convert.ToDouble(Height);
                     double cc = 6.25 * Convert.ToDouble(Weight);
                     double ccc = 5 * Convert.ToDouble(DateOfBirth);
-                    double RSK = c + cc - ccc - 161;
+                    RSK = c + cc - ccc + 5;
                     if (ActivityId == 1)
                     {
                         RSK = RSK * 1.2;
@@ -86,21 +83,27 @@ namespace HealthyLifestyle
                     if (GoalId == 1)
                     {
                         double percent = RSK / 100;
-                        double calories = RSK - (percent * 20);
-                        return Convert.ToString(calories);
+                        RSK = RSK - (percent * 20);
+                        return RSK;
                     }
                     else if (GoalId == 2)
                     {
                         double percent = RSK / 100;
-                        double calories = RSK + (percent * 20);
-                        return Convert.ToString(calories);
+                        RSK = RSK + (percent * 20);
+                        return RSK;
                     }
                     else
                     {
-                        return Convert.ToString(RSK);
+                        return RSK;
                     }
                 }
             }
         }
+
+        //public double FatsCarbohydratesSquirrels()
+        //{
+        //    if(GoalId == )
+        //}
+
     }
 }

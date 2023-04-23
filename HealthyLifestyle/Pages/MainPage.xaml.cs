@@ -52,12 +52,12 @@ namespace HealthyLifestyle.Pages
 
         private void ButtonCounter_Click(object sender, RoutedEventArgs e)
         {
-
+            Classes.FrameClassTwo.frame.Navigate(new Pages.HomePageWithCalories(us));
         }
 
         private void BButtonPersonalAccount_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameClass.frame.Navigate(new Pages.PersonalAccountPage(us));
         }
 
         private void ButtonExe_Click(object sender, RoutedEventArgs e)

@@ -33,12 +33,13 @@ namespace HealthyLifestyle.Pages
             FrameClass.frame.Navigate(new Pages.UserDataPage(login, password, idActivities));
         }
 
+        Users users;
         /// <summary>
         /// метод для добавления нового пользователя
         /// </summary>
         private void PostUsers()
         {
-            Users users = new Users()
+            users = new Users()
             {
                 GenderId = idGenders,
                 Login = login,
@@ -64,7 +65,10 @@ namespace HealthyLifestyle.Pages
                 CheckGoal3.IsChecked == true)
             {
                 PostUsers();
+               
                 Users us = DB.entities.Users.FirstOrDefault(x => x.Login == login && x.Password == password);
+                //users.Calories = Convert.ToInt32(us.CaloriesUsers);
+                //DB.entities.SaveChanges();
                 if (us != null)
                 {
                     FrameClass.frame.Navigate(new Pages.MainPage(us));

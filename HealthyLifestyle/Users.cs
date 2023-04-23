@@ -27,7 +27,7 @@ namespace HealthyLifestyle
         public Nullable<double> Height { get; set; }
         public Nullable<int> ActivityId { get; set; }
         public Nullable<int> GoalId { get; set; }
-        public Nullable<int> Calories { get; set; }
+        public Nullable<double> Calories { get; set; }
         public Nullable<double> Squirrels { get; set; }
         public Nullable<int> DateOfBirth { get; set; }
         public string Password { get; set; }
