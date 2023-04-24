@@ -50,8 +50,8 @@ namespace HealthyLifestyle.Pages
         {
             EditLoginWindow editLoginWindow = new EditLoginWindow(us);
             editLoginWindow.ShowDialog();
-            FrameClass.frame.Navigate(new Pages.PersonalAccountPage(us));
-            
+            Classes.FrameClassTwo.frame.Navigate(new Pages.PersonalAccountPage(us));
+
         }
         // запрет ввода символов
         private void TextBoxWeidth_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)

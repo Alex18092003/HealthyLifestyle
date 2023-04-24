@@ -9,7 +9,7 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="6*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
@@ -23,52 +23,51 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <GroupBox Header="Логин" Grid.Row="0" VerticalAlignment="Center">
-                <TextBox x:Name="tbLogin" MaxLength="50"/>
-            </GroupBox>
-            <GroupBox Header="Старый пароль" Grid.Row="1" VerticalAlignment="Center" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <PasswordBox Grid.Column="0" Name="pbOldPassword"/>
-                    <TextBox Grid.Column="0" x:Name="tbOldPasswordVisible" Visibility="Collapsed"/>
-                </Grid>
-            </GroupBox>
-            <GroupBox Header="Новый пароль" Grid.Row="2" VerticalAlignment="Center" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <PasswordBox Grid.Column="0" Name="pbNewPassword">
-                        <PasswordBox.ToolTip>
-                            <TextBlock TextWrapping = "Wrap" TextAlignment="Center" Width="400">
-                                Введенный пароль должен удовлетворять следующим требованиям: не менее 1 заглавного латинского символа, не менее 3 строчных латинских символов, не менее 2 цифры и не менее 1 спец.символа. Общая длина пароля не менее 8 символов
-                            </TextBlock>
-                        </PasswordBox.ToolTip>
-                    </PasswordBox>
-                    <TextBox Grid.Column="0" x:Name="tbNewPasswordVisible" Visibility="Collapsed"/>
-                  
-                </Grid>
-            </GroupBox>
-            <GroupBox Header="Потверждение нового пароля" Grid.Row="3" VerticalAlignment="Center">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="50"/>
-                    </Grid.ColumnDefinitions>
-                    <PasswordBox Grid.Column="0" Name="pbNewPasswordRepeated"/>
-                    <TextBox Grid.Column="0" x:Name="tbNewPasswordRepeatedVisible" Visibility="Collapsed"/>
-      
-                </Grid>
-            </GroupBox>
+            
+            <TextBlock  FontSize="20" Margin="10,10,0,0" Grid.Row="0">Логин</TextBlock>
+            <TextBox Grid.Row="1"  x:Name="tbLogin" MaxLength="50"/>
+            <TextBlock FontSize="20" Margin="10,10,0,0" Grid.Row="2">Старый пароль</TextBlock>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox FontSize="20"  Margin="10,5,10,5" Grid.Column="0" x:Name="pbPasswordVisible" Visibility="Collapsed"/>
+                <PasswordBox  FontSize="20"  Margin="10,5,10,5"  Name="pbOldPassword" Grid.Column="0"/>
+                <Image Grid.Column="1" x:Name="imVisiblePassword" Height="40" Width="40" Source="..\Resources\icon_password_visible.png" Margin="10, 0, 0, 0" PreviewMouseUp="imVisiblePassword_PreviewMouseUp"  PreviewMouseDown="imVisiblePassword_PreviewMouseDown"/>
+            </Grid>
+
+            <TextBlock FontSize="20" Margin="10,10,0,0" Grid.Row="4">Новый пароль</TextBlock>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox FontSize="20"  Margin="10,5,10,5" Grid.Column="0" x:Name="pbPasswordVisible2" Visibility="Collapsed"/>
+                <PasswordBox FontSize="20"  Margin="10,5,10,5" Grid.Column="0" Name="pbNewPassword">
+                </PasswordBox>
+                <Image Grid.Column="1" x:Name="imVisiblePassword2" Height="40" Width="40" Source="..\Resources\icon_password_visible.png" Margin="10, 0, 0, 0" PreviewMouseUp="imVisiblePassword2_PreviewMouseUp"  PreviewMouseDown="imVisiblePassword2_PreviewMouseDown"/>
+            </Grid>
+            <TextBlock FontSize="20" Margin="10,10,0,0" Grid.Row="6">Подтверждение пароля</TextBlock>
+            <Grid Grid.Row="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox FontSize="20"  Margin="10,5,10,5" Grid.Column="0" x:Name="pbPasswordVisible3" Visibility="Collapsed"/>
+                <PasswordBox FontSize="20"  Margin="10,5,10,5" Grid.Column="0" Name="pbNewPasswordRepeated3"/>
+                <Image Grid.Column="1" x:Name="imVisiblePassword3" Height="40" Width="40" Source="..\Resources\icon_password_visible.png" Margin="10, 0, 0, 0" PreviewMouseUp="imVisiblePassword3_PreviewMouseUp"  PreviewMouseDown="imVisiblePassword3_PreviewMouseDown"/>
+            </Grid>
         </Grid>
+
         <Grid Grid.Row="3">
-            <Button x:Name="btnBack" Content="Назад"  Click="btnBack_Click"/>
-            <Button x:Name="btnAdd" Content="Сохранить изменения"  Click="btnAdd_Click"/>
+            <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Left"   Click="btnBack_Click"/>
+            <Button x:Name="btnAdd" Content="Сохранить изменения"  HorizontalAlignment="Right"  Click="btnAdd_Click"/>
         </Grid>
 
     </Grid>

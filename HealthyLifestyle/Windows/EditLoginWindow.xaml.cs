@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace HealthyLifestyle
 {
@@ -34,7 +36,7 @@ namespace HealthyLifestyle
             {
                 if (pbNewPassword.Password.ToString() != "")
                 {
-                    if (pbNewPassword.Password.ToString() != pbNewPasswordRepeated.Password.ToString())
+                    if (pbNewPassword.Password.ToString() != pbNewPasswordRepeated3.Password.ToString())
                     {
                         TextBoxHint.Text = "Пароль не подтверждён!";
                         return;
@@ -51,6 +53,82 @@ namespace HealthyLifestyle
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void imVisiblePassword_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ShowPassword();
+        }
+
+        private void imVisiblePassword_PreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            HidePassword();
+        }
+        private void ShowPassword()
+        {
+            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible.png", UriKind.Relative));
+            pbPasswordVisible.Visibility = Visibility.Visible;
+            pbOldPassword.Visibility = Visibility.Collapsed;
+            pbPasswordVisible.Text = pbOldPassword.Password;
+        }
+
+        private void HidePassword()
+        {
+            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible.png", UriKind.Relative));
+            pbPasswordVisible.Visibility = Visibility.Collapsed;
+            pbOldPassword.Visibility = Visibility.Visible;
+            pbOldPassword.Focus();
+        }
+
+        private void imVisiblePassword2_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ShowPassword2();
+        }
+
+        private void imVisiblePassword2_PreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            HidePassword2();
+        }
+
+        private void ShowPassword2()
+        {
+            imVisiblePassword2.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible.png", UriKind.Relative));
+            pbPasswordVisible2.Visibility = Visibility.Visible;
+            pbNewPassword.Visibility = Visibility.Collapsed;
+            pbPasswordVisible2.Text = pbNewPassword.Password;
+        }
+
+        private void HidePassword2()
+        {
+            imVisiblePassword2.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible.png", UriKind.Relative));
+            pbPasswordVisible2.Visibility = Visibility.Collapsed;
+            pbNewPassword.Visibility = Visibility.Visible;
+            pbNewPassword.Focus();
+        }
+
+        private void imVisiblePassword3_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ShowPassword3();
+        }
+
+        private void imVisiblePassword3_PreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            HidePassword3();
+        }
+        private void ShowPassword3()
+        {
+            imVisiblePassword3.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible.png", UriKind.Relative));
+            pbPasswordVisible3.Visibility = Visibility.Visible;
+            pbNewPasswordRepeated3.Visibility = Visibility.Collapsed;
+            pbPasswordVisible3.Text = pbNewPasswordRepeated3.Password;
+        }
+
+        private void HidePassword3()
+        {
+            imVisiblePassword3.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible.png", UriKind.Relative));
+            pbPasswordVisible3.Visibility = Visibility.Collapsed;
+            pbNewPasswordRepeated3.Visibility = Visibility.Visible;
+            pbNewPasswordRepeated3.Focus();
         }
     }
 }
