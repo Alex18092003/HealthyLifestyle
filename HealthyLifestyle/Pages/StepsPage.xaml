@@ -103,12 +103,12 @@
                     
                     <StackPanel Grid.Row="0" Grid.Column="0">
                         <TextBlock>Ккал</TextBlock>
-                        <TextBox Name="TextBoxCaloriesIn100G"></TextBox>
+                        <TextBox IsEnabled="False" Name="TextBoxCaloriesIn100G"></TextBox>
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="1">
                         <TextBlock>Вес</TextBlock>
-                        <TextBox Name="TextBox100g"></TextBox>
+                        <TextBox Name="TextBox100g" PreviewTextInput="TextBox100g_PreviewTextInput"></TextBox>
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="2">
@@ -118,17 +118,17 @@
 
                     <StackPanel Grid.Row="1" Grid.Column="0">
                         <TextBlock>Белки</TextBlock>
-                        <TextBox Name="TextBoxSquirrels"></TextBox>
+                        <TextBox IsEnabled="False" Name="TextBoxSquirrels"></TextBox>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="1">
                         <TextBlock>Жиры</TextBlock>
-                        <TextBox Name="TextBoxFat"></TextBox>
+                        <TextBox IsEnabled="False" Name="TextBoxFat"></TextBox>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2">
                         <TextBlock>Углеводы</TextBlock>
-                        <TextBox Name="TextBoxCarbohydrates"></TextBox>
+                        <TextBox IsEnabled="False" Name="TextBoxCarbohydrates"></TextBox>
                     </StackPanel>
 
                     <StackPanel Grid.Row="2" Grid.ColumnSpan="3">

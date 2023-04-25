@@ -37,7 +37,7 @@ namespace HealthyLifestyle.Pages
 
         private void ButtonRecipes_Click(object sender, RoutedEventArgs e)
         {
-            Classes.FrameClassTwo.frame.Navigate(new Pages.RecipesPage());
+            Classes.FrameClassTwo.frame.Navigate(new Pages.RecipesPage(us));
         }
 
         private void ButtonDiary_Click(object sender, RoutedEventArgs e)

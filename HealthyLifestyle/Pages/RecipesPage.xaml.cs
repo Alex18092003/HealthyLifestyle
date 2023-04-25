@@ -12,10 +12,11 @@ namespace HealthyLifestyle.Pages
     /// </summary>
     public partial class RecipesPage : Page
     {
-
-        public RecipesPage()
+        Users users;
+        public RecipesPage(Users users)
         {
             InitializeComponent();
+            this.users = users;
             Conclusion();
         }
 
@@ -218,7 +219,7 @@ namespace HealthyLifestyle.Pages
             Grid st = (Grid)sender;
             int id = Convert.ToInt32(st.Uid);
             Recipes recipes = DB.entities.Recipes.FirstOrDefault(x => x.RecipeId == id);
-            Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage(recipes));
+            Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage(recipes, users));
         }
 
     }

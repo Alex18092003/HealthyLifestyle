@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace HealthyLifestyle.Pages
@@ -11,12 +12,16 @@ namespace HealthyLifestyle.Pages
     public partial class StepsPage : Page
     {
         Recipes recipes1;
+        Users users;
 
-        public StepsPage(Recipes recipes)
+        DailyRation dailyRation;
+
+        public StepsPage(Recipes recipes, Users users)
         {
             InitializeComponent();
 
             this.recipes1 = recipes;
+            this.users = users;
             Conclusion();
         }
 
@@ -56,7 +61,40 @@ namespace HealthyLifestyle.Pages
 
         private void ButtonAddDaily_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (TextBox100g.Text == "")
+            {
+                MessageBox.Show("Необходимо ввести вес блюда");
+                return;
+            }
 
+            if (TextBoxMeal.SelectedIndex == 0)
+            {
+                MessageBox.Show("Необходимо выбрать прием пищи");
+                return;
+            }
+            dailyRation.UserId = users.UserId;
+            dailyRation.RecepeId = recipes1.RecipeId;
+            dailyRation.Date = Convert.ToDateTime(DataToday.SelectedDate);
+            dailyRation.Calories = Convert.ToDouble(TextBoxCaloriesIn100G.Text);
+            dailyRation.Squirrels = Convert.ToDouble(TextBoxSquirrels.Text);
+            dailyRation.Fats = Convert.ToDouble(TextBoxFat.Text);
+            dailyRation.Carbohydrates = Convert.ToDouble(TextBoxCarbohydrates.Text);
+        }
+
+        //запрет ввода символов
+        private void TextBox100g_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            try
+            {
+                if (Char.IsNumber(e.Text, 0) | (e.Text == Convert.ToString(",")) | e.Text == Convert.ToString('\b')) return;
+                else
+                    e.Handled = true;
+
+            }
+            catch
+            {
+
+            }
         }
     }
 }

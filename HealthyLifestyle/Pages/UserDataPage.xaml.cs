@@ -18,7 +18,8 @@ namespace HealthyLifestyle.Pages
         {
             try
             {
-                if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
+                if (!Char.IsDigit(e.Text, 0))
+                { e.Handled = true; }
             }
             catch
             {
@@ -31,8 +32,10 @@ namespace HealthyLifestyle.Pages
         {
             try
             {
-                if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
-          
+                if (Char.IsNumber(e.Text, 0) | (e.Text == Convert.ToString(",")) | e.Text == Convert.ToString('\b')) return;
+                else
+                    e.Handled = true;
+
             }
             catch
             {
@@ -45,8 +48,10 @@ namespace HealthyLifestyle.Pages
         {
             try
             {
-                if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
-             
+                if (Char.IsNumber(e.Text, 0) | (e.Text == Convert.ToString(",")) | e.Text == Convert.ToString('\b')) return;
+                else
+                    e.Handled = true;
+
             }
             catch
             {
@@ -58,7 +63,7 @@ namespace HealthyLifestyle.Pages
         {
             if (!string.IsNullOrWhiteSpace(TextBoxWeight.Text))
             {
-                if (Convert.ToInt32(TextBoxWeight.Text) < 50 || Convert.ToInt32(TextBoxWeight.Text) > 265)
+                if (Convert.ToDouble(TextBoxWeight.Text) < 50 || Convert.ToDouble(TextBoxWeight.Text) > 265)
                 {
                     TextBlockHintWeight.Text = "Рост введен некорректно ";
                   
@@ -75,7 +80,7 @@ namespace HealthyLifestyle.Pages
         {
             if (!string.IsNullOrWhiteSpace(TextBoxHeight.Text))
             {
-                if (Convert.ToInt32(TextBoxHeight.Text) < 30 ||Convert.ToInt32(TextBoxHeight.Text) > 500)
+                if (Convert.ToDouble(TextBoxHeight.Text) < 30 ||Convert.ToDouble(TextBoxHeight.Text) > 500)
                 {
                     TextBlockHintHeight.Text = "Вес введен некорректно ";
                 }
@@ -163,7 +168,7 @@ namespace HealthyLifestyle.Pages
                 TextBlockHintAge.Text = "";
             }
 
-            if (TextBoxHeight.Text == "" || Convert.ToInt32(TextBoxHeight.Text) < 30 || Convert.ToInt32(TextBoxHeight.Text) > 500)
+            if (TextBoxHeight.Text == "" || Convert.ToDouble(TextBoxHeight.Text) < 30 || Convert.ToDouble(TextBoxHeight.Text) > 500)
             {
                 TextBlockHintHeight.Text = "Укажите свой вес";
             }
@@ -172,7 +177,7 @@ namespace HealthyLifestyle.Pages
                 TextBlockHintHeight.Text = "";
             }
 
-            if (TextBoxWeight.Text == "" || Convert.ToInt32(TextBoxWeight.Text) < 50 || Convert.ToInt32(TextBoxWeight.Text) > 265)
+            if (TextBoxWeight.Text == "" || Convert.ToDouble(TextBoxWeight.Text) < 50 || Convert.ToDouble(TextBoxWeight.Text) > 265)
             {
                 TextBlockHintWeight.Text = "Укажите свой рост";
             }
