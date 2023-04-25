@@ -108,7 +108,7 @@
 
                     <StackPanel Grid.Row="0" Grid.Column="1">
                         <TextBlock>Вес</TextBlock>
-                        <TextBox Name="TextBox100g" PreviewTextInput="TextBox100g_PreviewTextInput"></TextBox>
+                        <TextBox TextChanged="TextBox100g_TextChanged" Name="TextBox100g" PreviewTextInput="TextBox100g_PreviewTextInput"></TextBox>
                     </StackPanel>
 
                     <StackPanel Grid.Row="0" Grid.Column="2">

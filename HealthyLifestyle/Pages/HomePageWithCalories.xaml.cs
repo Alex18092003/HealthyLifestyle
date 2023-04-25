@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace HealthyLifestyle.Pages
 {
@@ -30,7 +33,24 @@ namespace HealthyLifestyle.Pages
             us.Calories = us.Calories;
             s();
 
+            CaloriesDay.Text = Convert.ToString(us.CaloriesInDay);
+            brush();
+        }
 
+        private void brush()
+        {
+            if (Convert.ToDouble(CaloriesDay.Text) > Convert.ToDouble(TextBlockCalories.Text))
+            {
+                CaloriesDay.Foreground = Brushes.Red;
+                HintText.Visibility = Visibility.Visible;
+                HintText.Text = "Предупреждение\nВы превысили дневную норму калорий";
+                HintText.Foreground = Brushes.Red;
+            }
+            else
+            {
+                SolidColorBrush color = (SolidColorBrush)new BrushConverter().ConvertFromString("#274025");
+                CaloriesDay.Foreground = color;
+            }
         }
 
         private void s()

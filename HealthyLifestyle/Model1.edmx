@@ -25,6 +25,7 @@
           <Property Name="Squirrels" Type="float" />
           <Property Name="Fats" Type="float" />
           <Property Name="Carbohydrates" Type="float" />
+          <Property Name="CaloriesUsers" Type="float" />
         </EntityType>
         <EntityType Name="Diets">
           <Key>
@@ -558,6 +559,7 @@
           <Property Name="Squirrels" Type="Double" />
           <Property Name="Fats" Type="Double" />
           <Property Name="Carbohydrates" Type="Double" />
+          <Property Name="CaloriesUsers" Type="Double" />
           <NavigationProperty Name="Recipes" Relationship="P_Lebedeva_DiplomModel.FK_DailyRation_Recipes" FromRole="DailyRation" ToRole="Recipes" />
           <NavigationProperty Name="Users" Relationship="P_Lebedeva_DiplomModel.FK_DailyRation_Users" FromRole="DailyRation" ToRole="Users" />
         </EntityType>
@@ -947,6 +949,7 @@
           <EntitySetMapping Name="DailyRation">
             <EntityTypeMapping TypeName="P_Lebedeva_DiplomModel.DailyRation">
               <MappingFragment StoreEntitySet="DailyRation">
+                <ScalarProperty Name="CaloriesUsers" ColumnName="CaloriesUsers" />
                 <ScalarProperty Name="Carbohydrates" ColumnName="Carbohydrates" />
                 <ScalarProperty Name="Fats" ColumnName="Fats" />
                 <ScalarProperty Name="Squirrels" ColumnName="Squirrels" />

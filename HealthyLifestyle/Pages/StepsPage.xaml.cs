@@ -72,6 +72,7 @@ namespace HealthyLifestyle.Pages
                 MessageBox.Show("Необходимо выбрать прием пищи");
                 return;
             }
+            dailyRation = new DailyRation();
             dailyRation.UserId = users.UserId;
             dailyRation.RecepeId = recipes1.RecipeId;
             dailyRation.Date = Convert.ToDateTime(DataToday.SelectedDate);
@@ -79,6 +80,11 @@ namespace HealthyLifestyle.Pages
             dailyRation.Squirrels = Convert.ToDouble(TextBoxSquirrels.Text);
             dailyRation.Fats = Convert.ToDouble(TextBoxFat.Text);
             dailyRation.Carbohydrates = Convert.ToDouble(TextBoxCarbohydrates.Text);
+            dailyRation.CaloriesUsers = users.Calories - Convert.ToDouble(TextBoxCaloriesIn100G.Text);
+            DB.entities.DailyRation.Add(dailyRation);
+            DB.entities.SaveChanges();
+            MessageBox.Show("ccs");
+            Classes.FrameClassTwo.frame.Navigate(new Pages.RecipesPage(users));
         }
 
         //запрет ввода символов
@@ -95,6 +101,34 @@ namespace HealthyLifestyle.Pages
             {
 
             }
+        }
+
+       
+        public void Calculation ()
+        {
+            if (!string.IsNullOrWhiteSpace(TextBox100g.Text))
+            {
+                double calories = 0;
+                double fats = 0;
+                double squirrels = 0;
+                double carbohydrates = 0;
+                calories = Convert.ToDouble(TextBoxCaloriesIn100G.Text) / 100;
+                //fats = Convert.ToDouble(TextBoxFat.Text) / (double)100.0;
+                //squirrels = Convert.ToDouble(TextBoxSquirrels.Text) / (double)100.0;
+                //carbohydrates = Convert.ToDouble(TextBoxCarbohydrates.Text) / (double)100.0;
+
+                TextBoxCaloriesIn100G.Text = Convert.ToString(calories * Convert.ToDouble(TextBox100g.Text));
+                //TextBoxFat.Text = Convert.ToString(Convert.ToDouble(TextBoxFat.Text) /100 * Convert.ToDouble(TextBox100g.Text));
+                //TextBoxSquirrels.Text = Convert.ToString(Convert.ToDouble(TextBoxSquirrels.Text) /100 * Convert.ToDouble(TextBox100g.Text));
+                //TextBoxCarbohydrates.Text = Convert.ToString(Convert.ToDouble(TextBoxCarbohydrates.Text) /100 * Convert.ToDouble(TextBox100g.Text));
+            }
+        }
+
+     
+
+        private void TextBox100g_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Calculation();
         }
     }
 }

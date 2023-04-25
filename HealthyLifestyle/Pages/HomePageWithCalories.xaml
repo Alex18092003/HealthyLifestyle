@@ -9,6 +9,16 @@
       Title="HomePageWithCalories">
 
     <Grid>
-        <TextBlock  FontSize="25" Name="TextBlockCalories" ></TextBlock>
+        <StackPanel>
+            <TextBlock  FontSize="25"  >Вы съели</TextBlock>
+            <Border Padding="10" CornerRadius="20" BorderThickness="1" BorderBrush="#FF76E383" Background="{Binding brush}">
+                <TextBlock  FontSize="25" Name="CaloriesDay" ></TextBlock>
+            </Border>
+                
+            <TextBlock  FontSize="25"  >из</TextBlock>
+            <TextBlock  FontSize="25" Name="TextBlockCalories" ></TextBlock>
+            <TextBlock Name="HintText" Visibility="Collapsed"></TextBlock>
+        </StackPanel>
+       
     </Grid>
 </Page>

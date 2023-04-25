@@ -1,10 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Media;
 
 namespace HealthyLifestyle
 {
     public partial class Users
     {
+        /// <summary>
+        /// Расчет общего количества съеденных калорий за день
+        /// </summary>
+        public double CaloriesInDay
+        {
+            get
+            {
+                DateTime dateTime = new DateTime();
+                dateTime = DateTime.Today;
+                List<DailyRation> dailyRation = DB.entities.DailyRation.Where(x => x.Date == dateTime &&  x.UserId == UserId).ToList();
+                double remainingCalories = 0;
+                double cal = Convert.ToDouble(Calories);
+                for (int i = 0; i < dailyRation.Count; i++)
+                {
+                    remainingCalories +=  (double)dailyRation[i].Calories;
+                }
+                return remainingCalories;
+            }
+        }
+
         double RSK;
+        /// <summary>
+        /// Расчет калорий на денб, исходя из параметров
+        /// </summary>
         public double CaloriesUsers
         {
             get
