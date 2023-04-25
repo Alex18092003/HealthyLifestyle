@@ -21,7 +21,6 @@
             <Button Name="ButtonExe" Click="ButtonExe_Click" >Выход</Button>
             <Button Name="ButtonRecipes" Click="ButtonRecipes_Click">Рецепты</Button>
             <Button Name="ButtonDiary" Click="ButtonDiary_Click">Дневник</Button>
-            <Button Name="ButtonFavourites" Click="ButtonFavourites_Click">Избранное</Button>
             <Button Name="ButtonCounter" Click="ButtonCounter_Click">Счетчик</Button>
             <Button Name="BButtonPersonalAccount" Click="BButtonPersonalAccount_Click">Личный кабинет</Button>
         </StackPanel>

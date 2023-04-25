@@ -84,6 +84,9 @@
     <Compile Include="Difficulties.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DiaryPage.xaml.cs">
+      <DependentUpon>DiaryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\EditLoginWindow.xaml.cs">
       <DependentUpon>EditLoginWindow.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
     <Compile Include="Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Page Include="Pages\DiaryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\EditLoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

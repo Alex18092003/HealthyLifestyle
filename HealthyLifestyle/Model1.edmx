@@ -26,6 +26,7 @@
           <Property Name="Fats" Type="float" />
           <Property Name="Carbohydrates" Type="float" />
           <Property Name="CaloriesUsers" Type="float" />
+          <Property Name="MealId" Type="int" />
         </EntityType>
         <EntityType Name="Diets">
           <Key>
@@ -174,6 +175,18 @@
           <Property Name="Fats" Type="float" />
           <Property Name="Carbohydrates" Type="float" />
         </EntityType>
+        <Association Name="FK_DailyRation_Meals">
+          <End Role="Meals" Type="Self.Meals" Multiplicity="0..1" />
+          <End Role="DailyRation" Type="Self.DailyRation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meals">
+              <PropertyRef Name="MealId" />
+            </Principal>
+            <Dependent Role="DailyRation">
+              <PropertyRef Name="MealId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DailyRation_Recipes">
           <End Role="Recipes" Type="Self.Recipes" Multiplicity="1" />
           <End Role="DailyRation" Type="Self.DailyRation" Multiplicity="*" />
@@ -385,6 +398,10 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UnitsOfMeasurement" EntityType="Self.UnitsOfMeasurement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DailyRation_Meals" Association="Self.FK_DailyRation_Meals">
+            <End Role="Meals" EntitySet="Meals" />
+            <End Role="DailyRation" EntitySet="DailyRation" />
+          </AssociationSet>
           <AssociationSet Name="FK_DailyRation_Recipes" Association="Self.FK_DailyRation_Recipes">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="DailyRation" EntitySet="DailyRation" />
@@ -477,6 +494,10 @@
             <End Role="Activities" EntitySet="Activities" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_DailyRation_Meals" Association="P_Lebedeva_DiplomModel.FK_DailyRation_Meals">
+            <End Role="Meals" EntitySet="Meals" />
+            <End Role="DailyRation" EntitySet="DailyRation" />
+          </AssociationSet>
           <AssociationSet Name="FK_DailyRation_Recipes" Association="P_Lebedeva_DiplomModel.FK_DailyRation_Recipes">
             <End Role="Recipes" EntitySet="Recipes" />
             <End Role="DailyRation" EntitySet="DailyRation" />
@@ -560,6 +581,8 @@
           <Property Name="Fats" Type="Double" />
           <Property Name="Carbohydrates" Type="Double" />
           <Property Name="CaloriesUsers" Type="Double" />
+          <Property Name="MealId" Type="Int32" />
+          <NavigationProperty Name="Meals" Relationship="P_Lebedeva_DiplomModel.FK_DailyRation_Meals" FromRole="DailyRation" ToRole="Meals" />
           <NavigationProperty Name="Recipes" Relationship="P_Lebedeva_DiplomModel.FK_DailyRation_Recipes" FromRole="DailyRation" ToRole="Recipes" />
           <NavigationProperty Name="Users" Relationship="P_Lebedeva_DiplomModel.FK_DailyRation_Users" FromRole="DailyRation" ToRole="Users" />
         </EntityType>
@@ -630,6 +653,7 @@
           </Key>
           <Property Name="MealId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DailyRation" Relationship="P_Lebedeva_DiplomModel.FK_DailyRation_Meals" FromRole="Meals" ToRole="DailyRation" />
           <NavigationProperty Name="Recipes" Relationship="P_Lebedeva_DiplomModel.FK_Recipes_Meals" FromRole="Meals" ToRole="Recipes" />
         </EntityType>
         <EntityType Name="Preparations">
@@ -748,6 +772,18 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="ActivityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DailyRation_Meals">
+          <End Type="P_Lebedeva_DiplomModel.Meals" Role="Meals" Multiplicity="0..1" />
+          <End Type="P_Lebedeva_DiplomModel.DailyRation" Role="DailyRation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meals">
+              <PropertyRef Name="MealId" />
+            </Principal>
+            <Dependent Role="DailyRation">
+              <PropertyRef Name="MealId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -949,6 +985,7 @@
           <EntitySetMapping Name="DailyRation">
             <EntityTypeMapping TypeName="P_Lebedeva_DiplomModel.DailyRation">
               <MappingFragment StoreEntitySet="DailyRation">
+                <ScalarProperty Name="MealId" ColumnName="MealId" />
                 <ScalarProperty Name="CaloriesUsers" ColumnName="CaloriesUsers" />
                 <ScalarProperty Name="Carbohydrates" ColumnName="Carbohydrates" />
                 <ScalarProperty Name="Fats" ColumnName="Fats" />

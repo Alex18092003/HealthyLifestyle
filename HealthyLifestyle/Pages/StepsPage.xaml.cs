@@ -81,9 +81,9 @@ namespace HealthyLifestyle.Pages
             dailyRation.Fats = Convert.ToDouble(TextBoxFat.Text);
             dailyRation.Carbohydrates = Convert.ToDouble(TextBoxCarbohydrates.Text);
             dailyRation.CaloriesUsers = users.Calories - Convert.ToDouble(TextBoxCaloriesIn100G.Text);
+            dailyRation.MealId = TextBoxMeal.SelectedIndex;
             DB.entities.DailyRation.Add(dailyRation);
             DB.entities.SaveChanges();
-            MessageBox.Show("ccs");
             Classes.FrameClassTwo.frame.Navigate(new Pages.RecipesPage(users));
         }
 
@@ -112,15 +112,15 @@ namespace HealthyLifestyle.Pages
                 double fats = 0;
                 double squirrels = 0;
                 double carbohydrates = 0;
-                calories = Convert.ToDouble(TextBoxCaloriesIn100G.Text) / 100;
-                //fats = Convert.ToDouble(TextBoxFat.Text) / (double)100.0;
-                //squirrels = Convert.ToDouble(TextBoxSquirrels.Text) / (double)100.0;
-                //carbohydrates = Convert.ToDouble(TextBoxCarbohydrates.Text) / (double)100.0;
+                calories = Convert.ToDouble(recipes1.Calories) / 100;
+                fats = Convert.ToDouble(recipes1.Fats) / 100;
+                squirrels = Convert.ToDouble(recipes1.Squirrels) / 100;
+                carbohydrates = Convert.ToDouble(recipes1.Carbohydrates) / 100;
 
                 TextBoxCaloriesIn100G.Text = Convert.ToString(calories * Convert.ToDouble(TextBox100g.Text));
-                //TextBoxFat.Text = Convert.ToString(Convert.ToDouble(TextBoxFat.Text) /100 * Convert.ToDouble(TextBox100g.Text));
-                //TextBoxSquirrels.Text = Convert.ToString(Convert.ToDouble(TextBoxSquirrels.Text) /100 * Convert.ToDouble(TextBox100g.Text));
-                //TextBoxCarbohydrates.Text = Convert.ToString(Convert.ToDouble(TextBoxCarbohydrates.Text) /100 * Convert.ToDouble(TextBox100g.Text));
+                TextBoxFat.Text = Convert.ToString(fats * Convert.ToDouble(TextBox100g.Text));
+                TextBoxSquirrels.Text = Convert.ToString(squirrels * Convert.ToDouble(TextBox100g.Text));
+                TextBoxCarbohydrates.Text = Convert.ToString(carbohydrates * Convert.ToDouble(TextBox100g.Text));
             }
         }
 

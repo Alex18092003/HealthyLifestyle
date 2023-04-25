@@ -11,7 +11,7 @@
     <Grid>
 
         <StackPanel>
-            <TextBlock>Это ваш профиль. Обновляйте данные о себе по ходе процесса.</TextBlock>
+            <TextBlock>Это ваш профиль. Обновляйте данные о себе по ходу прогресса.</TextBlock>
         <TextBlock>Рост</TextBlock>
         <TextBox PreviewTextInput="TextBoxWeidth_PreviewTextInput" IsEnabled="False" Width="100" Height="30" Name="TextBoxWeidth"></TextBox>
         <TextBlock>Вес</TextBlock>

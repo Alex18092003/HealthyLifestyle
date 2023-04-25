@@ -42,13 +42,9 @@ namespace HealthyLifestyle.Pages
 
         private void ButtonDiary_Click(object sender, RoutedEventArgs e)
         {
-
+            Classes.FrameClassTwo.frame.Navigate(new Pages.DiaryPage(us));
         }
 
-        private void ButtonFavourites_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void ButtonCounter_Click(object sender, RoutedEventArgs e)
         {

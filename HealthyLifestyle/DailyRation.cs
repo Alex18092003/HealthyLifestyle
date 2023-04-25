@@ -23,7 +23,9 @@ namespace HealthyLifestyle
         public Nullable<double> Fats { get; set; }
         public Nullable<double> Carbohydrates { get; set; }
         public Nullable<double> CaloriesUsers { get; set; }
+        public Nullable<int> MealId { get; set; }
     
+        public virtual Meals Meals { get; set; }
         public virtual Recipes Recipes { get; set; }
         public virtual Users Users { get; set; }
     }
