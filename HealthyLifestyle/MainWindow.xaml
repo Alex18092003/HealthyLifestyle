@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200"
         MinHeight="800" MinWidth="1200"
-        Icon="Resources/Logotip.ico">
+        Icon="Resources/Log.png">
     <Grid>
         <Frame Name="Frame" NavigationUIVisibility="Hidden">
 

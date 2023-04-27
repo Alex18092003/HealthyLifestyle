@@ -20,7 +20,7 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Image Grid.Column="1" Grid.Row="0"  Source="../Resources/Log.png" ></Image>
+        <Image Grid.Column="1" Grid.Row="0"  Source="../Resources/pngwing.com.png" Margin="50" ></Image>
 
         <Border Grid.Row="1" Grid.Column="1" Background="White"  CornerRadius="20,20,20,20">
             <Border.Effect>

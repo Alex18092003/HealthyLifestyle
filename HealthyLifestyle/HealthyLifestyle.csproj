@@ -286,18 +286,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\Logotip.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Logotip.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Log.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\u-1c94ab11ae364a35aa828a725821a079.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\pngwing.com.png" />
+    <Resource Include="Resources\Icon.ico" />
+    <Resource Include="Resources\ll.ico" />
+    <Resource Include="Resources\l.jpg" />
+    <Resource Include="Resources\Log.ico" />
     <Resource Include="Images\photo_2022-03-23_22-25-00-2.jpg" />
     <Resource Include="Images\photo_2022-03-23_22-25-00-3.jpg" />
     <Resource Include="Images\photo_2022-03-23_22-25-00.jpg" />
