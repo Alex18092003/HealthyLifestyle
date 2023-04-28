@@ -50,12 +50,12 @@
                     </Grid.ColumnDefinitions>
                     <TextBox FontSize="25"  Margin="10,5,10,5" Grid.Column="0" x:Name="pbPasswordVisible" Visibility="Collapsed"/>
                     <PasswordBox Grid.Column="0" KeyDown="TextBoxPassword_KeyDown" FontSize="25"  Margin="10,5,10,5"  Name="TextBoxPassword"></PasswordBox>
-                    <Image Grid.Column="1" x:Name="imVisiblePassword" Height="40" Width="40" Source="..\Resources\icon_password_visible.png" Margin="10, 0, 0, 0" PreviewMouseUp="imVisiblePassword_PreviewMouseUp"  PreviewMouseDown="imVisiblePassword_PreviewMouseDown"/>
+                    <Image Grid.Column="1" x:Name="imVisiblePassword" Height="50" Width="50" Source="..\Resources\icon_password_visible1.png" Margin="10, 0, 0, 0" PreviewMouseUp="imVisiblePassword_PreviewMouseUp"  PreviewMouseDown="imVisiblePassword_PreviewMouseDown"/>
                 </Grid>
                
                 
                 <TextBlock FontSize="15" Margin="10,0,0,0" Foreground="Red" Name="TextBlockHint"  Grid.Row="4"></TextBlock>
-                <Button  Margin="10,10,10,10" FontSize="25" Grid.Row="5" Name="ButtonEnter" Click="ButtonEnter_Click">Войти</Button>
+                <Button  Margin="10,10,10,10" FontSize="25" Grid.Row="5" Name="ButtonEnter" Click="ButtonEnter_Click" FontStretch="Condensed">Войти</Button>
                 <TextBlock FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6">Или</TextBlock>
                 <Button  Margin="10,10,10,10" Style="{StaticResource ButtonNoActiv}" FontSize="25" Grid.Row="7" Name="ButtonRegistration" Click="ButtonRegistration_Click">Зарегистрировать аккаунт</Button>
                 <TextBlock  Margin="10,10,10,0" FontSize="20" TextWrapping="Wrap" Grid.Row="8">Зарегистрируйтесь, чтобы получить доступ к множеству рецептов и модулем расчета калорий и БЖУ</TextBlock>

@@ -33,9 +33,9 @@
                     <RowDefinition Height="1*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Button FontSize="40"
-                        Margin="10,10,10,10" Grid.Row="0" Name="ButtonNewUser" Click="ButtonNewUser_Click">Новый пользователь</Button>
-                <Button FontSize="40" Margin="10,10,10,10"  Grid.Row="1" Name="ButtonUser" Click="ButtonUser_Click">Уже есть аккаунт</Button>
-                <TextBlock FontSize="25"  Margin="10,10,10,10"  Grid.Row="2">Приложение не содержит медицинские рекомендаций</TextBlock>
+                        Margin="10,10,10,10" Grid.Row="0" Name="ButtonNewUser" Click="ButtonNewUser_Click"  >Новый пользователь</Button>
+                <Button FontSize="40" Margin="10,10,10,10"  Grid.Row="1" Name="ButtonUser" Click="ButtonUser_Click" >Уже есть аккаунт</Button>
+                <TextBlock FontSize="25"  Margin="10,10,10,10"  Grid.Row="2" >Приложение не содержит медицинские рекомендаций</TextBlock>
             </Grid>
         </Border>
     </Grid>

@@ -78,7 +78,7 @@ namespace HealthyLifestyle.Pages
 
         private void ShowPassword()
         {
-            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible.png", UriKind.Relative));
+            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible1.png", UriKind.Relative));
             pbPasswordVisible.Visibility = Visibility.Visible;
             TextBoxPassword.Visibility = Visibility.Collapsed;
             pbPasswordVisible.Text = TextBoxPassword.Password;
@@ -86,7 +86,7 @@ namespace HealthyLifestyle.Pages
 
         private void HidePassword()
         {
-            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible.png", UriKind.Relative));
+            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible1.png", UriKind.Relative));
             pbPasswordVisible.Visibility = Visibility.Collapsed;
             TextBoxPassword.Visibility = Visibility.Visible;
             TextBoxPassword.Focus();

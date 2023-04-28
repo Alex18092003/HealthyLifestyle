@@ -272,6 +272,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Resource Include="Fonts\Comfortaa-VariableFont_wght.ttf" />
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
@@ -292,10 +293,10 @@
     <Resource Include="Images\u-1c94ab11ae364a35aa828a725821a079.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\pngwing.com.png" />
     <Resource Include="Resources\Icon.ico" />
-    <Resource Include="Resources\ll.ico" />
-    <Resource Include="Resources\l.jpg" />
+    <Resource Include="Resources\icon_password_not_visible1.png" />
+    <Resource Include="Resources\icon_password_visible1.png" />
+    <Resource Include="Resources\pngwing.com.png" />
     <Resource Include="Resources\Log.ico" />
     <Resource Include="Images\photo_2022-03-23_22-25-00-2.jpg" />
     <Resource Include="Images\photo_2022-03-23_22-25-00-3.jpg" />
