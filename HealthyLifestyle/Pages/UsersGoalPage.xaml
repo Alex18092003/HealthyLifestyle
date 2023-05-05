@@ -6,8 +6,10 @@
       xmlns:local="clr-namespace:HealthyLifestyle.Pages"
       mc:Ignorable="d" 
    d:DesignHeight="800" d:DesignWidth="1200"
-      Title="UsersGoalPage">
-    <Grid Background="#CFF3CD">
+      >
+
+  
+        <Grid Background="#CFF3CD">
         <Grid.ColumnDefinitions>
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -18,8 +20,8 @@
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <TextBlock  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"  >Какова ваша цель?</TextBlock>
+
+        <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold"  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"  >Какова ваша цель?</TextBlock>
 
         <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="20,20,20,20">
             <Border.Effect>
@@ -78,4 +80,5 @@
         </Border>
 
     </Grid>
+
 </Page>

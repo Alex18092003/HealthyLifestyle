@@ -3,16 +3,19 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:HealthyLifestyle.Pages"
+  xmlns:local="clr-namespace:HealthyLifestyle.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="667" d:DesignWidth="1200"
-      Title="RecipesPage">
+      Background="White"
+   
+        d:DesignHeight="800" d:DesignWidth="1000"
+     >
 
     <Page.Resources>
         <BitmapImage x:Key="defaultImage" UriSource="../Resources/Log.png"/>
     </Page.Resources>
+    
 
-    <Grid>
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
@@ -31,6 +34,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            
             
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2">Поиск рецептов</TextBlock>
             <TextBox TextChanged="TextBoxSearchTitle_TextChanged" Grid.Row="1" Grid.ColumnSpan="2" Name="TextBoxSearchTitle" ></TextBox>
@@ -53,21 +57,47 @@
             <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="1" Name="ComboBoxDiets"></ComboBox>
         </Grid>
 
-        
-        <ListView Grid.Row="1" Name="ListRecipes" >
+
+        <ListView Grid.Row="1" Name="ListRecipes" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="600">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel ></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemTemplate >
                 <DataTemplate >
-                    <Border>
-                        <Grid Name="STToTheSteps" Uid="{Binding RecipeId}" MouseDown="STToTheSteps_MouseDown" >
+                    <Border  CornerRadius="20">
+
+                        <Border.Background>
+                            <ImageBrush Opacity="0.7" ImageSource="{Binding Photo, TargetNullValue={StaticResource defaultImage}}"></ImageBrush>
+                        </Border.Background>
+                       
+                     
+
+                        <Grid  Width="400" Height="310" Name="STToTheSteps" Uid="{Binding RecipeId}" MouseDown="STToTheSteps_MouseDown" >
                             <StackPanel  >
-                                <Image Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
-                                <TextBlock Text="{Binding Title}" ></TextBlock>
-                                <TextBlock>Калорийность на 100г.</TextBlock>
-                                <TextBlock Text="{Binding Calories}"  ></TextBlock>
-                                <TextBlock Text="{Binding MinutesOfCooking}"  ></TextBlock>
-                                <TextBlock  Text="{Binding Description}" TextWrapping="Wrap" ></TextBlock>
+                                <Border  CornerRadius="20">
+                                <StackPanel  Background="#CFF3CD">
+                                    <TextBlock FontSize="40" Text="{Binding Title}" ></TextBlock>
+                                </StackPanel>
+                                </Border>
+                                
+                                <TextBlock FontSize="25" >Калорийность на 100г.</TextBlock>
+                                <TextBlock FontSize="25"  Text="{Binding Calories}"  ></TextBlock>
+                                <TextBlock FontSize="25"  Text="{Binding MinutesOfCooking}"  ></TextBlock>
+                                <TextBlock  FontSize="25"  Text="{Binding Description}" TextWrapping="Wrap" ></TextBlock>
                             </StackPanel>
-                           
                         </Grid>
                     </Border>
                 </DataTemplate>
@@ -76,4 +106,5 @@
        
 
     </Grid>
+
 </Page>
