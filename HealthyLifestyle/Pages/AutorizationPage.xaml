@@ -21,7 +21,8 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Авторизация</TextBlock>
+        <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" 
+                   Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Авторизация</TextBlock>
 
 
         <Border Grid.Row="1" Grid.Column="1" Background="White"  CornerRadius="20,20,20,20">
@@ -41,22 +42,46 @@
                     <RowDefinition Height="2*"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock FontSize="25" Margin="10,10,0,0" Grid.Row="0">Логин</TextBlock>
-                <TextBox KeyDown="TextBoxLogin_KeyDown" FontSize="25" Margin="10,5,10,5"  Grid.Row="1" Name="TextBoxLogin"></TextBox>
-                <TextBlock FontSize="25" Margin="10,10,0,0"  Grid.Row="2">Пароль</TextBlock>
+
+                <TextBlock FontSize="25" Margin="30,20,0,0" Grid.Row="0">Логин</TextBlock>
+                
+                <StackPanel Grid.Row="1">
+                <TextBox KeyDown="TextBoxLogin_KeyDown"
+                         Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0"
+                         FontSize="25" Margin="30,5,30,5"   Name="TextBoxLogin"></TextBox>
+                    <Border Margin="30,0,30,0"  Height="2" Background="#274025"></Border>
+                </StackPanel>
+                <TextBlock  FontSize="25" Margin="30,20,0,0"  Grid.Row="2">Пароль</TextBlock>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"></ColumnDefinition>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBox FontSize="25"  Margin="10,5,10,5" Grid.Column="0" x:Name="pbPasswordVisible" Visibility="Collapsed"/>
-                    <PasswordBox Grid.Column="0" KeyDown="TextBoxPassword_KeyDown" FontSize="25"  Margin="10,5,10,5"  Name="TextBoxPassword"></PasswordBox>
-                    <Image Grid.Column="1" x:Name="imVisiblePassword" Height="50" Width="50" Source="..\Resources\icon_password_visible1.png" Margin="10, 0, 0, 0" PreviewMouseUp="imVisiblePassword_PreviewMouseUp"  PreviewMouseDown="imVisiblePassword_PreviewMouseDown"/>
+                    
+                  
+                        <TextBox Grid.Column="0" FontSize="25"  Margin="30,5,30,5" 
+                                Background="Transparent"
+                         Foreground="Black"
+                        BorderThickness="0"
+                             x:Name="pbPasswordVisible" Visibility="Collapsed"/>
+                        <PasswordBox Grid.Column="0"
+                                 Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0"
+                                 KeyDown="TextBoxPassword_KeyDown" FontSize="25"  
+                        Margin="30,5,30,5"  Name="TextBoxPassword"></PasswordBox>
+                        <Border Grid.Column="0" Margin="30,35,30,0"  Height="2" Background="#274025"></Border>
+                    
+                    
+                    <Image Grid.Column="1" x:Name="imVisiblePassword" Height="50" Width="50" Source="..\Resources\icon_password_visible1.png" Margin="10, 0, 0, 0" PreviewMouseDown="imVisiblePassword_PreviewMouseDown"  PreviewMouseUp="imVisiblePassword_PreviewMouseUp"/>
                 </Grid>
                
                 
                 <TextBlock FontSize="15" Margin="10,0,0,0" Foreground="Red" Name="TextBlockHint"  Grid.Row="4"></TextBlock>
-                <Button  Margin="10,10,10,10" FontSize="25" Grid.Row="5" Name="ButtonEnter" Click="ButtonEnter_Click" FontStretch="Condensed" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa Light">Войти</Button>
+                <Button  Margin="10,10,10,10" FontSize="25" Grid.Row="5" Name="ButtonEnter" Click="ButtonEnter_Click" FontStretch="Condensed" 
+                         FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa Light">Войти</Button>
                 <TextBlock FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6">Или</TextBlock>
                 <Button  Margin="10,10,10,10" Style="{StaticResource ButtonNoActiv}" FontSize="25" Grid.Row="7" Name="ButtonRegistration" Click="ButtonRegistration_Click" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa Light">Зарегистрировать аккаунт</Button>
                 <TextBlock  Margin="10,10,10,0" FontSize="20" TextWrapping="Wrap" Grid.Row="8">Зарегистрируйтесь, чтобы получить доступ к множеству рецептов и модулем расчета калорий и БЖУ</TextBlock>

@@ -150,7 +150,8 @@ namespace HealthyLifestyle.Pages
         private void Proverka()
         {
 
-            if (CheckGenderMen.IsChecked == false && CheckGenderWomen.IsChecked == false)
+            if (icon1.Kind == MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank ||
+                icon2.Kind == MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank)
             {
                 TextBlockHintGender.Text = "Выберите свой пол";
             }
@@ -186,7 +187,8 @@ namespace HealthyLifestyle.Pages
                 TextBlockHintWeight.Text = "";
             }
 
-            if ((CheckGenderMen.IsChecked != false || CheckGenderWomen.IsChecked != false) && TextBoxAge.Text != "" &&
+            if ((icon1.Kind == MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked ||
+                icon2.Kind == MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked) && TextBoxAge.Text != "" &&
     TextBoxHeight.Text != "" && TextBoxWeight.Text != "")
             {
                 age = TextBoxAge.Text;
@@ -201,16 +203,21 @@ namespace HealthyLifestyle.Pages
             Proverka();
         }
 
-        private void CheckGenderMen_Checked(object sender, RoutedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             idGenders = 1;
-            CheckGenderWomen.IsChecked = false;
+            icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
+            icon2.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+
         }
 
-        private void CheckGenderWomen_Checked(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             idGenders = 2;
-            CheckGenderMen.IsChecked = false;
+            icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+            icon2.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
+
         }
     }
 }

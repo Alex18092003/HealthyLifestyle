@@ -299,6 +299,7 @@
     <Resource Include="Images\u-1c94ab11ae364a35aa828a725821a079.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\3-1.jpeg" />
     <Resource Include="Resources\Icon.ico" />
     <Resource Include="Resources\icon_password_not_visible1.png" />
     <Resource Include="Resources\icon_password_visible1.png" />

@@ -6,6 +6,11 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <Style x:Key="ComboBoxStyle" TargetType="{x:Type ComboBox}">
+            <Setter Property="FontFamily" Value="/HealthyLifestyle;component/Fonts/#Comfortaa" ></Setter>
+            <!--<Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" ></Setter>-->
+            <Setter Property="BorderThickness" Value="1" ></Setter>
+        </Style>
 
 
 

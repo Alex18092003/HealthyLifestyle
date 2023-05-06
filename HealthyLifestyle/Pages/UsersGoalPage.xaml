@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:local="clr-namespace:HealthyLifestyle.Pages"
       mc:Ignorable="d" 
    d:DesignHeight="800" d:DesignWidth="1200"
@@ -17,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -34,11 +35,24 @@
                     <RowDefinition Height="2*"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,10,10,10">
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="30,20,10,10">
                     <StackPanel >
-                        <RadioButton Margin="10,25,0,10" FontSize="25"  Name="CheckGoal1" Checked="CheckGoal1_Checked"></RadioButton>
-                        <RadioButton Margin="10,30,0,10"  FontSize="25" Name="CheckGoal2" Checked="CheckGoal2_Checked"></RadioButton>
-                        <RadioButton Margin="10,30,0,10"  FontSize="25"  Name="CheckGoal3" Checked="CheckGoal3_Checked"></RadioButton>
+                        <Grid  Margin="10 18 10 10">
+                            <Button Click="Button_Click" Background="Transparent"></Button>
+                            <Icon:PackIconMaterial Foreground="#274025"  Name="icon1"  Kind="RadioboxBlank" ></Icon:PackIconMaterial>
+                        </Grid>
+
+                        <Grid  Margin="10 22 10 10" >
+                            <Button Click="Button_Click_1" Background="Transparent"></Button>
+                            <Icon:PackIconMaterial Foreground="#274025"  Name="icon2" Kind="RadioboxBlank" ></Icon:PackIconMaterial>
+                        </Grid>
+
+                        <Grid  Margin="10 22 10 10" >
+                            <Button Click="Button_Click_2" Background="Transparent"></Button>
+                            <Icon:PackIconMaterial Foreground="#274025" Name="icon3" Kind="RadioboxBlank" ></Icon:PackIconMaterial>
+                        </Grid>
+                        
+                       
                     </StackPanel>
                     <ListView Background="Transparent" BorderThickness="0"  Name="ListGoals" >
                         <ListView.ItemContainerStyle>

@@ -61,14 +61,13 @@ namespace HealthyLifestyle.Pages
 
         public void ButtonFurther_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckGoal1.IsChecked == true || CheckGoal2.IsChecked == true ||
-                CheckGoal3.IsChecked == true)
-            {
+            if(icon1.Kind == MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked ||
+                icon2.Kind == MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked ||
+                icon3.Kind == MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked )
+                {
                 PostUsers();
                
                 Users us = DB.entities.Users.FirstOrDefault(x => x.Login == login && x.Password == password);
-                //users.Calories = Convert.ToInt32(us.CaloriesUsers);
-                //DB.entities.SaveChanges();
                 if (us != null)
                 {
                     FrameClass.frame.Navigate(new Pages.MainPage(us));
@@ -81,25 +80,35 @@ namespace HealthyLifestyle.Pages
 
         }
 
-        private void CheckGoal1_Checked(object sender, RoutedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             idGoal = 1;
-            CheckGoal2.IsChecked = false;
-            CheckGoal3.IsChecked = false;
+            icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
+            icon2.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+            icon3.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+
         }
 
-        private void CheckGoal2_Checked(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             idGoal = 2;
-            CheckGoal1.IsChecked = false;
-            CheckGoal3.IsChecked = false;
+            icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+            icon2.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
+            icon3.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+
+
         }
 
-        private void CheckGoal3_Checked(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             idGoal = 3;
-            CheckGoal2.IsChecked = false;
-            CheckGoal1.IsChecked = false;
+            icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+            icon2.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
+            icon3.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
+
         }
+
+
     }
 }

@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:HealthyLifestyle.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="1200"
@@ -18,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -40,38 +41,71 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <StackPanel Margin="10,10,10,10" Grid.Row="0" Grid.Column="0">
+                <StackPanel Margin="30,20,10,10" Grid.Row="0" Grid.Column="0">
                     <TextBlock FontSize="25">Ваш пол?</TextBlock>
                     <StackPanel Orientation="Horizontal">
-                        <RadioButton Margin="10,10,10,10"  FontSize="25" Name="CheckGenderMen" Checked="CheckGenderMen_Checked"></RadioButton>
+                        <Grid  Margin="10 10 10 10">
+                            <Button Click="Button_Click" Background="Transparent"></Button>
+                            <Icon:PackIconMaterial Foreground="#274025"  Name="icon1"  Kind="RadioboxBlank" ></Icon:PackIconMaterial>
+                        </Grid>
                         <TextBlock FontSize="25">Мужской</TextBlock>
                     </StackPanel>
                     
 
                     <StackPanel Orientation="Horizontal">
-                        <RadioButton Margin="10,10,10,10"  FontSize="25" Name="CheckGenderWomen" Checked="CheckGenderWomen_Checked"></RadioButton>
+                        <Grid  Margin="10 10 10 10" >
+                            <Button Click="Button_Click_1" Background="Transparent"></Button>
+                            <Icon:PackIconMaterial Foreground="#274025"  Name="icon2" Kind="RadioboxBlank" ></Icon:PackIconMaterial>
+                        </Grid>
                         <TextBlock FontSize="25" >Женский</TextBlock>
                     </StackPanel>
                     <TextBlock FontSize="15" Foreground="Red" Name="TextBlockHintGender"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Margin="10,10,10,10" Grid.Row="0" Grid.Column="1">
+                <StackPanel Margin="10,20,30,10" Grid.Row="0" Grid.Column="1">
                     <TextBlock FontSize="25">Сколько вам лет?</TextBlock>
-                    <TextBox KeyDown="TextBoxAge_KeyDown" TextChanged="TextBoxAge_TextChanged" PreviewTextInput="TextBoxAge_PreviewTextInput" FontSize="25" Name="TextBoxAge"></TextBox>
+                    <StackPanel>
+                    <TextBox 
+                        Background="Transparent"
+                         Foreground="Black"
+                        BorderThickness="0"
+                        KeyDown="TextBoxAge_KeyDown" TextChanged="TextBoxAge_TextChanged" 
+                        PreviewTextInput="TextBoxAge_PreviewTextInput" FontSize="25" 
+                        Name="TextBoxAge"></TextBox>
+                        <Border Grid.Column="0" Margin="0,5,0,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
                     <TextBlock FontSize="20">лет</TextBlock>
                     <TextBlock FontSize="15" Foreground="Red" Name="TextBlockHintAge"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Margin="10,10,10,10" Grid.Row="1" Grid.Column="0">
+                <StackPanel Margin="30,20,10,10" Grid.Row="1" Grid.Column="0">
                     <TextBlock FontSize="25" >Ваш рост?</TextBlock>
-                    <TextBox KeyDown="TextBoxWeight_KeyDown" TextChanged="TextBoxWeight_TextChanged"  PreviewTextInput="TextBoxWeight_PreviewTextInput" Name="TextBoxWeight" FontSize="25"></TextBox>
-                    <TextBlock FontSize="20">см</TextBlock>
+                    <StackPanel>
+                    <TextBox KeyDown="TextBoxWeight_KeyDown" 
+                              Background="Transparent"
+                         Foreground="Black"
+                        BorderThickness="0"
+                             TextChanged="TextBoxWeight_TextChanged"  
+                             PreviewTextInput="TextBoxWeight_PreviewTextInput" 
+                             Name="TextBoxWeight" FontSize="25"></TextBox>
+                        <Border Grid.Column="0" Margin="0,5,0,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
+                        <TextBlock FontSize="20">см</TextBlock>
                     <TextBlock FontSize="15" Foreground="Red" Name="TextBlockHintWeight"></TextBlock>
                 </StackPanel>
 
-                <StackPanel Margin="10,10,10,10" Grid.Row="1" Grid.Column="1">
+                <StackPanel Margin="10,20,30,10" Grid.Row="1" Grid.Column="1">
                     <TextBlock FontSize="25">Сколько вы весите?</TextBlock>
-                    <TextBox KeyDown="TextBoxHeight_KeyDown" TextChanged="TextBoxHeight_TextChanged" PreviewTextInput="TextBoxHeight_PreviewTextInput" FontSize="25" Name="TextBoxHeight"></TextBox>
+                    <StackPanel>
+                    <TextBox KeyDown="TextBoxHeight_KeyDown" 
+                             TextChanged="TextBoxHeight_TextChanged" 
+                             Background="Transparent"
+                         Foreground="Black"
+                        BorderThickness="0"
+                             PreviewTextInput="TextBoxHeight_PreviewTextInput" FontSize="25" 
+                             Name="TextBoxHeight"></TextBox>
+                    <Border Grid.Column="0" Margin="0,5,0,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
                     <TextBlock FontSize="20">кг</TextBlock>
                     <TextBlock FontSize="15" Foreground="Red" Name="TextBlockHintHeight"></TextBlock>
                 </StackPanel>

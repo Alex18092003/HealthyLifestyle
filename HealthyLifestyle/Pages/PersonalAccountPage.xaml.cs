@@ -32,6 +32,10 @@ namespace HealthyLifestyle.Pages
             ComboBoxGoal.DisplayMemberPath = "Title";
             ComboBoxGoal.SelectedValue = us.GoalId;
 
+            TextBoxHeight.TextChanged += TextBoxHeight_TextChanged;
+            TextBoxWeidth.TextChanged += TextBoxWeidth_TextChanged;
+            TextBoxAge.TextChanged += TextBoxAge_TextChanged;
+
         }
 
         private void ButtonEdit_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -58,8 +62,9 @@ namespace HealthyLifestyle.Pages
         {
             try
             {
-                if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
-
+                if (Char.IsNumber(e.Text, 0) | (e.Text == Convert.ToString(",")) | e.Text == Convert.ToString('\b')) return;
+                else
+                    e.Handled = true;
             }
             catch
             {
@@ -71,8 +76,9 @@ namespace HealthyLifestyle.Pages
         {
             try
             {
-                if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
-
+                if (Char.IsNumber(e.Text, 0) | (e.Text == Convert.ToString(",")) | e.Text == Convert.ToString('\b')) return;
+                else
+                    e.Handled = true;
             }
             catch
             {
@@ -104,7 +110,7 @@ namespace HealthyLifestyle.Pages
                 us.ActivityId = (int)ComboBoxActivities.SelectedValue;
                 us.GoalId = (int)ComboBoxGoal.SelectedValue;
                 DB.entities.SaveChanges();
-                MessageBox.Show("Данные успешно обновлены");
+            
 
                 TextBoxWeidth.IsEnabled = false;
                 TextBoxHeight.IsEnabled = false;
@@ -117,6 +123,54 @@ namespace HealthyLifestyle.Pages
             else
             {
                 TextBoxHint.Text = "Заполните все поля";
+            }
+        }
+
+        private void TextBoxWeidth_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TextBoxWeidth.Text))
+            {
+                if (Convert.ToDouble(TextBoxWeidth.Text) < 50 || Convert.ToDouble(TextBoxWeidth.Text) > 265)
+                {
+                    TextBoxHint.Text = "Рост введен некорректно ";
+
+                }
+                else
+                {
+                    TextBoxHint.Text = "";
+                }
+            }
+        }
+
+        private void TextBoxHeight_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TextBoxHeight.Text))
+            {
+                if (Convert.ToDouble(TextBoxHeight.Text) < 30 || Convert.ToDouble(TextBoxHeight.Text) > 500)
+                {
+                    TextBoxHint.Text = "Вес введен некорректно ";
+                }
+                else
+                {
+                    TextBoxHint.Text = "";
+
+                }
+            }
+        }
+
+        private void TextBoxAge_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(TextBoxAge.Text))
+            {
+                if (Convert.ToInt32(TextBoxAge.Text) < 14 || Convert.ToInt32(TextBoxAge.Text) > 80)
+                {
+                    TextBoxHint.Text = "Возвраст введен некорректно ";
+                }
+                else
+                {
+                    TextBoxHint.Text = "";
+
+                }
             }
         }
     }

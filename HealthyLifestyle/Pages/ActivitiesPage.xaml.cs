@@ -53,7 +53,15 @@ namespace HealthyLifestyle.Pages
            
         }
 
-        private void CheckActivities1_Checked(object sender, RoutedEventArgs e)
+
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.frame.Navigate(new Pages.NewUserPage());
+        }
+
+ 
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             idActivities = 1;
             icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
@@ -63,7 +71,7 @@ namespace HealthyLifestyle.Pages
             icon5.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
         }
 
-        private void CheckActivities2_Checked(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             idActivities = 2;
             icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
@@ -74,7 +82,7 @@ namespace HealthyLifestyle.Pages
 
         }
 
-        private void CheckActivities3_Checked(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             idActivities = 3;
             icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
@@ -82,13 +90,9 @@ namespace HealthyLifestyle.Pages
             icon3.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
             icon4.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
             icon5.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
-            CheckActivities1.IsChecked = false;
-            CheckActivities2.IsChecked = false;
-            CheckActivities4.IsChecked = false;
-            CheckActivities5.IsChecked = false;
         }
 
-        private void CheckActivities4_Checked(object sender, RoutedEventArgs e)
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             idActivities = 4;
             icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
@@ -96,15 +100,9 @@ namespace HealthyLifestyle.Pages
             icon3.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
             icon4.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
             icon5.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
-
         }
 
-        private void ButtonBack_Click(object sender, RoutedEventArgs e)
-        {
-            FrameClass.frame.Navigate(new Pages.NewUserPage());
-        }
-
-        private void CheckActivities5_Checked(object sender, RoutedEventArgs e)
+        private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             idActivities = 5;
             icon1.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
@@ -112,7 +110,10 @@ namespace HealthyLifestyle.Pages
             icon3.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
             icon4.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
             icon5.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxMarked;
-
         }
+
+
+
+
     }
 }

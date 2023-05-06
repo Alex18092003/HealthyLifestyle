@@ -11,25 +11,98 @@
 
 
         <Grid>
+        <Border>
 
-        <StackPanel>
-            <TextBlock>Это ваш профиль. Обновляйте данные о себе по ходу прогресса.</TextBlock>
-        <TextBlock>Рост</TextBlock>
-        <TextBox PreviewTextInput="TextBoxWeidth_PreviewTextInput" IsEnabled="False" Width="100" Height="30" Name="TextBoxWeidth"></TextBox>
-        <TextBlock>Вес</TextBlock>
-            <TextBox PreviewTextInput="TextBoxHeight_PreviewTextInput"  IsEnabled="False" Width="100" Height="30" Name="TextBoxHeight"></TextBox>
-            <TextBlock>Возраст</TextBlock>
-            <TextBox PreviewTextInput="TextBoxAge_PreviewTextInput"  IsEnabled="False" Width="100" Height="30" Name="TextBoxAge"></TextBox>
-           
-            <TextBlock>Образ жизни</TextBlock>
-            <ComboBox  IsEnabled="False" Width="100" Height="30" Name="ComboBoxActivities"></ComboBox>
-            <TextBlock>Цель</TextBlock>
-            <ComboBox  IsEnabled="False" Width="100" Height="30" Name="ComboBoxGoal"></ComboBox>
-            <TextBlock Name="TextBoxHint" FontSize="15" Foreground="Red"></TextBlock>
-            <Button Name="ButtonEdit" Click="ButtonEdit_Click" Content="Редактировать данные"></Button>
-            <Button Visibility="Collapsed" Name="ButtonAdd" Click="ButtonAdd_Click" Content="Сохранить изменения"></Button>
-            <Button Name="ButtonEditLogin" Click="ButtonEditLogin_Click">Изменить логин и пароль</Button>
-        </StackPanel>
+            <Border.Background>
+                <ImageBrush Opacity="0.09" ImageSource="..\Resources\3-1.jpeg"></ImageBrush>
+            </Border.Background>
+
+            <StackPanel VerticalAlignment="Center" Margin="30,0,30,0">
+            <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold"
+                       FontSize="25"
+                       >Это ваш профиль. Обновляйте данные о себе по ходу прогресса</TextBlock>
+                <Grid Margin="0 50 0 0 ">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0 20 20 20" HorizontalAlignment="Right" FontSize="25">Рост</TextBlock>
+                    <StackPanel Grid.Row="0" Grid.Column="1" >
+                        <TextBox Margin="20 20 20 0" FontSize="25" 
+                                 TextChanged="TextBoxWeidth_TextChanged"
+                                  Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0"
+                                 PreviewTextInput="TextBoxWeidth_PreviewTextInput" IsEnabled="False"  Name="TextBoxWeidth"></TextBox>
+                    <Border Margin="20,0,20,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
+
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="0 20 20 20" HorizontalAlignment="Right"  FontSize="25">Вес</TextBlock>
+                    <StackPanel Grid.Row="1" Grid.Column="1" >
+                        <TextBox  Margin="20 20 20 0" FontSize="25" PreviewTextInput="TextBoxHeight_PreviewTextInput"  
+                                 IsEnabled="False" Name="TextBoxHeight"
+                                  Background="Transparent"
+                                  TextChanged="TextBoxHeight_TextChanged"
+                         Foreground="Black"
+                         BorderThickness="0"></TextBox>
+                        <Border Margin="20,0,20,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
+
+
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="0 20 20 20" HorizontalAlignment="Right" FontSize="25">Возраст</TextBlock>
+                    <StackPanel Grid.Row="2" Grid.Column="1" >
+                        <TextBox  Margin="20 20 20 0" FontSize="25" 
+                                  Background="Transparent"
+                                  TextChanged="TextBoxAge_TextChanged"
+                         Foreground="Black"
+                         BorderThickness="0"
+                                  PreviewTextInput="TextBoxAge_PreviewTextInput"  
+                             IsEnabled="False" Name="TextBoxAge"></TextBox>
+                        <Border Margin="20,0,20,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
+
+
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="0 20 20 20" HorizontalAlignment="Right" FontSize="25">Образ жизни</TextBlock>
+                        <ComboBox Grid.Row="3" Grid.Column="1" Margin="20 20 20 20" FontSize="25"  IsEnabled="False"  Name="ComboBoxActivities"></ComboBox>
+
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="0 20 20 20" HorizontalAlignment="Right" FontSize="25">Цель</TextBlock>
+                        <ComboBox Grid.Row="4" Grid.Column="1" Margin="20 20 20 20" FontSize="25"  IsEnabled="False"  Name="ComboBoxGoal"></ComboBox>
+              
+                    <TextBlock  Margin="50 0 50 0 " Grid.Row="5" Grid.ColumnSpan="2" Name="TextBoxHint" FontSize="15" Foreground="Red"></TextBlock>
+                    <Button Margin="20" FontSize="25" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa Light" 
+                             Height="70"
+                             Grid.Row="6"  Grid.ColumnSpan="2" Name="ButtonEdit" Click="ButtonEdit_Click" Content="Редактировать данные"></Button>
+
+                    <Button Margin="20" FontSize="25" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa Light" Grid.Row="6" 
+                             Grid.ColumnSpan="2" Visibility="Collapsed" Name="ButtonAdd" 
+                             Height="70"
+                            Click="ButtonAdd_Click" Content="Сохранить изменения"></Button>
+
+                    <StackPanel Margin="20" Grid.Row="7" Grid.ColumnSpan="2" >
+                    <Button  FontSize="25" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa Light" 
+                             Height="70"
+                             Name="ButtonEditLogin" Click="ButtonEditLogin_Click">Изменить логин и пароль</Button>
+                        
+                    </StackPanel>
+
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
  
 </Page>
