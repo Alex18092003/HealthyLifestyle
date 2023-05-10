@@ -200,7 +200,10 @@ namespace HealthyLifestyle.Pages
             ListRecipes.ItemsSource = r;
             if (r.Count == 0)
             {
-                MessageBox.Show("Нет записей", "Сообщение");
+                string str = "По вашим параметрам не найдено рецептов";
+                Windows.Eror eror = new Windows.Eror(users, str);
+                eror.ShowDialog();
+                Classes.FrameClassTwo.frame.Navigate(new Pages.RecipesPage(users));
             }
         }
 
@@ -216,7 +219,7 @@ namespace HealthyLifestyle.Pages
 
         private void STToTheSteps_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Grid st = (Grid)sender;
+            Border st = (Border)sender;
             int id = Convert.ToInt32(st.Uid);
             Recipes recipes = DB.entities.Recipes.FirstOrDefault(x => x.RecipeId == id);
             Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage(recipes, users));

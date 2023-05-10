@@ -102,6 +102,11 @@ namespace HealthyLifestyle.Pages
             icon5.Kind = MahApps.Metro.IconPacks.PackIconMaterialKind.RadioboxBlank;
         }
 
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             idActivities = 5;

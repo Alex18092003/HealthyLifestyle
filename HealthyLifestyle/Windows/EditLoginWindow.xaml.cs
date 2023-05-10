@@ -66,7 +66,7 @@ namespace HealthyLifestyle
         }
         private void ShowPassword()
         {
-            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible.png", UriKind.Relative));
+            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible1.png", UriKind.Relative));
             pbPasswordVisible.Visibility = Visibility.Visible;
             pbOldPassword.Visibility = Visibility.Collapsed;
             pbPasswordVisible.Text = pbOldPassword.Password;
@@ -74,7 +74,7 @@ namespace HealthyLifestyle
 
         private void HidePassword()
         {
-            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible.png", UriKind.Relative));
+            imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible1.png", UriKind.Relative));
             pbPasswordVisible.Visibility = Visibility.Collapsed;
             pbOldPassword.Visibility = Visibility.Visible;
             pbOldPassword.Focus();
@@ -92,15 +92,30 @@ namespace HealthyLifestyle
 
         private void ShowPassword2()
         {
-            imVisiblePassword2.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible.png", UriKind.Relative));
+            imVisiblePassword2.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible1.png", UriKind.Relative));
             pbPasswordVisible2.Visibility = Visibility.Visible;
             pbNewPassword.Visibility = Visibility.Collapsed;
             pbPasswordVisible2.Text = pbNewPassword.Password;
+
+            //if (pbPasswordVisible.Visibility == Visibility.Visible)
+            //{
+            //    imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible1.png", UriKind.Relative));
+            //    pbPasswordVisible.Visibility = Visibility.Collapsed;
+            //    pbNewPassword.Visibility = Visibility.Visible;
+            //    pbNewPassword.Focus();
+            //}
+            //else
+            //{
+            //    imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible1.png", UriKind.Relative));
+            //    pbPasswordVisible.Visibility = Visibility.Visible;
+            //    pbNewPassword.Visibility = Visibility.Collapsed;
+            //    pbPasswordVisible.Text = pbNewPassword.Password;
+            //}
         }
 
         private void HidePassword2()
         {
-            imVisiblePassword2.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible.png", UriKind.Relative));
+            imVisiblePassword2.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible1.png", UriKind.Relative));
             pbPasswordVisible2.Visibility = Visibility.Collapsed;
             pbNewPassword.Visibility = Visibility.Visible;
             pbNewPassword.Focus();
@@ -117,15 +132,30 @@ namespace HealthyLifestyle
         }
         private void ShowPassword3()
         {
-            imVisiblePassword3.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible.png", UriKind.Relative));
+            imVisiblePassword3.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible1.png", UriKind.Relative));
             pbPasswordVisible3.Visibility = Visibility.Visible;
             pbNewPasswordRepeated3.Visibility = Visibility.Collapsed;
             pbPasswordVisible3.Text = pbNewPasswordRepeated3.Password;
+
+            //if (pbPasswordVisible.Visibility == Visibility.Visible)
+            //{
+            //    imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible1.png", UriKind.Relative));
+            //    pbPasswordVisible.Visibility = Visibility.Collapsed;
+            //    pbNewPasswordRepeated3.Visibility = Visibility.Visible;
+            //    pbNewPasswordRepeated3.Focus();
+            //}
+            //else
+            //{
+            //    imVisiblePassword.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_not_visible1.png", UriKind.Relative));
+            //    pbPasswordVisible.Visibility = Visibility.Visible;
+            //    pbNewPasswordRepeated3.Visibility = Visibility.Collapsed;
+            //    pbPasswordVisible.Text = pbNewPasswordRepeated3.Password;
+            //}
         }
 
         private void HidePassword3()
         {
-            imVisiblePassword3.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible.png", UriKind.Relative));
+            imVisiblePassword3.Source = new BitmapImage(new Uri("..\\Resources\\icon_password_visible1.png", UriKind.Relative));
             pbPasswordVisible3.Visibility = Visibility.Collapsed;
             pbNewPasswordRepeated3.Visibility = Visibility.Visible;
             pbNewPasswordRepeated3.Focus();

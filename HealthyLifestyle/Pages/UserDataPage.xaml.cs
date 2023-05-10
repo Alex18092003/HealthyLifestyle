@@ -27,6 +27,11 @@ namespace HealthyLifestyle.Pages
             }
         }
 
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
         // запрет ввода символов
         private void TextBoxWeight_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {

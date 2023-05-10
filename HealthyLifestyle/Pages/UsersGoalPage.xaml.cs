@@ -28,6 +28,11 @@ namespace HealthyLifestyle.Pages
             this.ListGoals.ItemsSource = DB.entities.Goals.ToList();
         }
 
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             FrameClass.frame.Navigate(new Pages.UserDataPage(login, password, idActivities));

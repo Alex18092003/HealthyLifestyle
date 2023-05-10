@@ -29,6 +29,11 @@ namespace HealthyLifestyle.Pages
 
         }
 
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
         /// <summary>
         /// метод для проверки логина и пароля пользователя
         /// </summary>

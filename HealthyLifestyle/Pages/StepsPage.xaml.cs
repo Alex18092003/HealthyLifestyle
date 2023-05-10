@@ -33,7 +33,7 @@ namespace HealthyLifestyle.Pages
         {
             TextTitleRecipes.Text = recipes1.Title;
             TextDescriptionRecipes.Text = recipes1.Description;
-            TextMinutesRecipes.Text = Convert.ToString(recipes1.MinutesOfCooking);
+            TextMinutesRecipes.Text = "Время приготовления " + Convert.ToString(recipes1.MinutesOfCooking) + " мин.";
             TextComment.Text = recipes1.Comment;
 
             List<Steps> ad = DB.entities.Steps.Where(x => x.RecipeId == recipes1.RecipeId).ToList();
@@ -63,13 +63,21 @@ namespace HealthyLifestyle.Pages
         {
             if (TextBox100g.Text == "")
             {
-                MessageBox.Show("Необходимо ввести вес блюда");
+  
+                string str = "Необходимо ввести вес блюда";
+                Windows.Eror eror = new Windows.Eror(users, str);
+                eror.ShowDialog();
+                Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage( recipes1, users));
                 return;
             }
 
             if (TextBoxMeal.SelectedIndex == 0)
             {
-                MessageBox.Show("Необходимо выбрать прием пищи");
+
+                string str = "Необходимо выбрать прием пищи";
+                Windows.Eror eror = new Windows.Eror(users, str);
+                eror.ShowDialog();
+                Classes.FrameClassTwo.frame.Navigate(new Pages.StepsPage(recipes1, users));
                 return;
             }
             dailyRation = new DailyRation();

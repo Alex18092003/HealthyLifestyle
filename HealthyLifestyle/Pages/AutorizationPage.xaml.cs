@@ -106,5 +106,10 @@ namespace HealthyLifestyle.Pages
         {
             HidePassword();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

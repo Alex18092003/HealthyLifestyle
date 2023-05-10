@@ -34,5 +34,10 @@ namespace HealthyLifestyle.Pages
         {
             FrameClass.frame.Navigate(new Pages.AutorizationPage());
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

@@ -10,7 +10,7 @@
       >
 
 
-        <Grid>
+        <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -19,8 +19,11 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <TextBlock>Завтрак</TextBlock>
-            <ListView Name="ListDiaryBreakfast" >
+            <Border Background="#274025" CornerRadius="3" Margin="10">
+            <TextBlock Foreground="White" FontSize="25" Margin="10">Завтрак</TextBlock>
+            </Border>
+            <Border>
+                <ListView FontSize="25" Name="ListDiaryBreakfast" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border>
@@ -40,11 +43,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+            </Border>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-            <TextBlock>Обед</TextBlock>
-            <ListView Name="ListDiaryLunch" >
+            <Border Background="#274025" CornerRadius="3" Margin="10">
+            <TextBlock FontSize="25" Margin="10" Foreground="White">Обед</TextBlock>
+            </Border>
+            <ListView  FontSize="25" Name="ListDiaryLunch" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border>
@@ -64,11 +70,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
         </StackPanel>
 
         <StackPanel Grid.Row="2">
-            <TextBlock>Ужин</TextBlock>
-            <ListView Name="ListDiaryDinner" >
+            <Border Background="#274025" CornerRadius="3" Margin="10">
+                <TextBlock Margin="10" Foreground="White" FontSize="25">Ужин</TextBlock>
+            </Border>
+            <ListView FontSize="25" Name="ListDiaryDinner" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border>
@@ -91,8 +100,10 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3">
-            <TextBlock>Перекус</TextBlock>
-            <ListView Name="ListDiarySnack" >
+            <Border Background="#274025" CornerRadius="3" Margin="10">
+            <TextBlock FontSize="25" Foreground="White" Margin="10">Перекус</TextBlock>
+            </Border>
+            <ListView FontSize="25" Name="ListDiarySnack" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border>

@@ -15,13 +15,13 @@
     </Page.Resources>
     
 
-        <Grid>
+        <Grid Margin="10 10 10 10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -32,19 +32,34 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+
+
+            <TextBlock  Margin="10 20 0 0" FontSize="25" Grid.ColumnSpan="2"   Grid.Row="0">Поиск по названию</TextBlock>
+            <TextBox Grid.ColumnSpan="2"  TextChanged="TextBoxSearchTitle_TextChanged" 
+                          MaxLength="30"
+                         Margin="290 20 30 0"
+                     FontSize="25"
+                         Grid.Row="0"
+                         Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0"
+                     Name="TextBoxSearchTitle" ></TextBox>
+                <Border Grid.ColumnSpan="2"   Margin="290,43,30,0" 
+                        Grid.Row="0" Height="2" Background="#274025"></Border>
+    
             
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
             
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="2">Поиск рецептов</TextBlock>
-            <TextBox TextChanged="TextBoxSearchTitle_TextChanged" Grid.Row="1" Grid.ColumnSpan="2" Name="TextBoxSearchTitle" ></TextBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="2" Grid.Column="0" Name="ComboBoxMeals"></ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="2" Grid.Column="1" Name="ComboBoxRecipeTypes"></ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="3" Grid.Column="0" Name="ComboBoxSpecifics"></ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="3" Grid.Column="1" Name="ComboBoxPreparations"></ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="0" Name="ComboBoxKitchens"></ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="1" Name="ComboBoxDifficulties"></ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="0" Name="ComboBoxMinutesOfCooking">
+            </StackPanel>
+
+            <ComboBox  Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="1" Grid.Column="0" Name="ComboBoxMeals"></ComboBox>
+            <ComboBox Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="1" Grid.Column="1" Name="ComboBoxRecipeTypes"></ComboBox>
+            <ComboBox Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="2" Grid.Column="0" Name="ComboBoxSpecifics"></ComboBox>
+            <ComboBox Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="2" Grid.Column="1" Name="ComboBoxPreparations"></ComboBox>
+            <ComboBox Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="3" Grid.Column="0" Name="ComboBoxKitchens"></ComboBox>
+            <ComboBox Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="3" Grid.Column="1" Name="ComboBoxDifficulties"></ComboBox>
+            <ComboBox Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="0" Name="ComboBoxMinutesOfCooking">
                 <ComboBoxItem>Время приготовления</ComboBoxItem>
                 <ComboBoxItem>до 10 мин</ComboBoxItem>
                 <ComboBoxItem>до 20 мин</ComboBoxItem>
@@ -54,16 +69,23 @@
                 <ComboBoxItem>до 60 мин</ComboBoxItem>
                 <ComboBoxItem>более 60 мин</ComboBoxItem>
             </ComboBox>
-            <ComboBox SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="5" Grid.Column="1" Name="ComboBoxDiets"></ComboBox>
+            <ComboBox Margin="10" FontSize="25" SelectionChanged="ComboBoxMeals_SelectionChanged" Grid.Row="4" Grid.Column="1" Name="ComboBoxDiets"></ComboBox>
+            
         </Grid>
 
 
-        <ListView Grid.Row="1" Name="ListRecipes" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="600">
+        <ListView  BorderThickness="0"  Grid.Row="1" Name="ListRecipes" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="470">
+            <ListView.Background>
+                <!--<Brush Opacity="1"  >#274025</Brush>-->
+                <SolidColorBrush Color="#274025" Opacity="0.7"></SolidColorBrush>
+            </ListView.Background>
+            
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel ></WrapPanel>
+                    <WrapPanel Margin="20" HorizontalAlignment="Center"></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
+            
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="Template">
@@ -75,28 +97,45 @@
                     </Setter>
                 </Style>
             </ListView.ItemContainerStyle>
+            
             <ListView.ItemTemplate >
                 <DataTemplate >
-                    <Border  CornerRadius="20">
+                    <Border Uid="{Binding RecipeId}" MouseDown="STToTheSteps_MouseDown"  Margin="20"  CornerRadius="20">
 
                         <Border.Background>
-                            <ImageBrush Opacity="0.7" ImageSource="{Binding Photo, TargetNullValue={StaticResource defaultImage}}"></ImageBrush>
+                            <ImageBrush  ImageSource="{Binding Photo, TargetNullValue={StaticResource defaultImage}}"></ImageBrush>
                         </Border.Background>
-                       
-                     
+                        <Grid  Width="400" Height="400" Name="STToTheSteps"   >
 
-                        <Grid  Width="400" Height="310" Name="STToTheSteps" Uid="{Binding RecipeId}" MouseDown="STToTheSteps_MouseDown" >
-                            <StackPanel  >
-                                <Border  CornerRadius="20">
-                                <StackPanel  Background="#CFF3CD">
-                                    <TextBlock FontSize="40" Text="{Binding Title}" ></TextBlock>
-                                </StackPanel>
+
+
+                            <StackPanel>
+
+                                <Border Margin="10 10 10 0" CornerRadius="20"  Background="#CFF3CD" >
+                                        <TextBlock Margin="10" FontWeight="Bold" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa"
+                                                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="20" Text="{Binding Title}" TextWrapping="Wrap"></TextBlock>
                                 </Border>
-                                
-                                <TextBlock FontSize="25" >Калорийность на 100г.</TextBlock>
-                                <TextBlock FontSize="25"  Text="{Binding Calories}"  ></TextBlock>
-                                <TextBlock FontSize="25"  Text="{Binding MinutesOfCooking}"  ></TextBlock>
-                                <TextBlock  FontSize="25"  Text="{Binding Description}" TextWrapping="Wrap" ></TextBlock>
+
+
+                            <!--<TextBlock FontSize="20" >Калорийность на 100г.</TextBlock>-->
+
+                                <Border Margin="10 10 250 0" CornerRadius="20"  Background="#CFF3CD" >
+                                    <TextBlock FontSize="20"  Margin="10" FontWeight="Bold" 
+                                               FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa"
+                                                HorizontalAlignment="Center"  VerticalAlignment="Center"
+                                           Text="{Binding Calories, StringFormat={}{0:} ккал}"  ></TextBlock>
+                                </Border>
+
+
+
+                                <Border Margin="10 10 280 0"  CornerRadius="20"  Background="#CFF3CD" >
+                                    <TextBlock FontSize="20" Margin="10" FontWeight="Bold" 
+                                               FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa"
+                                                HorizontalAlignment="Center"  VerticalAlignment="Center"
+                                               Text="{Binding MinutesOfCooking, StringFormat={}{0} мин}"  ></TextBlock>
+                                </Border>
+                                <!--<TextBlock  FontSize="25"  Text="{Binding Description}" TextWrapping="Wrap" ></TextBlock>-->
                             </StackPanel>
                         </Grid>
                     </Border>

@@ -15,6 +15,10 @@
 
         <ScrollViewer  VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible">
             <Grid >
+            <Grid.Background>
+                <!--<Brush Opacity="1"  >#274025</Brush>-->
+                <SolidColorBrush Color="#274025" Opacity="0.7"></SolidColorBrush>
+            </Grid.Background>
             <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -32,19 +36,39 @@
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
-                <StackPanel  Grid.Column="1" Orientation="Vertical">
-                    <TextBlock   Name="TextTitleRecipes" TextWrapping="Wrap"></TextBlock>
-                    <TextBlock  Name="TextDescriptionRecipes"  TextWrapping="Wrap"></TextBlock>
-                    <TextBlock  Name="TextMinutesRecipes"  ></TextBlock>
-                    <TextBlock  Name="TextComment"  ></TextBlock>
+
+                <StackPanel  Grid.ColumnSpan="2" Orientation="Vertical">
+                    <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" Margin="0 20 0 20" HorizontalAlignment="Center" FontSize="30" Name="TextTitleRecipes" TextWrapping="Wrap"></TextBlock>
+
+
+                    <Border Margin="10,20,10,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="30"  Direction="0"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" Margin="10 10 10 0" FontSize="20"  HorizontalAlignment="Center">Описание рецепта</TextBlock>
+                        <TextBlock FontSize="15" Margin="10 0 10 10" Name="TextDescriptionRecipes"  TextWrapping="Wrap"></TextBlock>
+                            <TextBlock FontSize="15" Margin="10 10 10 0" TextWrapping="Wrap"  Name="TextComment"  ></TextBlock>
+                        </StackPanel>
+                    </Border>
+                   
+
+                    <StackPanel Margin="10 20 0 20" Orientation="Horizontal">
+                       
+                        <TextBlock  FontSize="20" Foreground="White" Name="TextMinutesRecipes" ></TextBlock>
+                      
+                    </StackPanel>
+                   
+                   
                 </StackPanel>
             </Grid>
 
-            <Border Margin="180,20,180,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
+            <Border Margin="200,20,200,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30"  Direction="0"/>
                 </Border.Effect>
+                <StackPanel>
+                    <TextBlock Margin="10 10 10 0" FontSize="20" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold">Ингредиенты</TextBlock>
                 <ListView Margin="15" Grid.Column="1" Name="ListIngredientsForRecepes" Background="Transparent" BorderThickness="0" >
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
@@ -62,17 +86,17 @@
                             <Border>
                                 <Grid >
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition></ColumnDefinition>
-                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            <ColumnDefinition Width="1*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
                                     <StackPanel Grid.Column="0" >
-                                        <TextBlock  Text="{Binding Ingredients.Title}"></TextBlock>
+                                            <TextBlock FontSize="15"  Text="{Binding Ingredients.Title}" Margin="0 0 0 10"></TextBlock>
                                     </StackPanel>
 
-                                    <StackPanel Grid.Column="1" Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Quantity}"></TextBlock>
-                                        <TextBlock  Text="{Binding UnitsOfMeasurement.Title}"></TextBlock>
+                                        <StackPanel HorizontalAlignment="Right" Margin="0 0 0 10"  Grid.Column="1" Orientation="Horizontal">
+                                            <TextBlock FontSize="15" Text="{Binding Quantity}"></TextBlock>
+                                            <TextBlock FontSize="15"    Text="{Binding Units}"></TextBlock>
                                     </StackPanel>
                                     
                                    
@@ -82,6 +106,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                </StackPanel>
             </Border>
 
 
@@ -89,55 +114,87 @@
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30"  Direction="0"/>
                 </Border.Effect>
-                <Grid Margin="15">
+                <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
                     </Grid.RowDefinitions>
-                    
-                    <StackPanel Grid.Row="0" Grid.Column="0">
-                        <TextBlock>Ккал</TextBlock>
-                        <TextBox IsEnabled="False" Name="TextBoxCaloriesIn100G"></TextBox>
+
+                    <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                        <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" 
+                                   FontWeight="Bold" Margin="0 0 0 10"  FontSize="20">Расчет приема (Вы можете изменить вес порции)</TextBlock>
                     </StackPanel>
 
-                    <StackPanel Grid.Row="0" Grid.Column="1">
-                        <TextBlock>Вес</TextBlock>
-                        <TextBox TextChanged="TextBox100g_TextChanged" Name="TextBox100g" PreviewTextInput="TextBox100g_PreviewTextInput"></TextBox>
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="0" Grid.Column="2">
-                        <TextBlock>Прием пищи</TextBlock>
-                        <ComboBox Name="TextBoxMeal"></ComboBox>
-                    </StackPanel>
-
-                    <StackPanel Grid.Row="1" Grid.Column="0">
-                        <TextBlock>Белки</TextBlock>
-                        <TextBox IsEnabled="False" Name="TextBoxSquirrels"></TextBox>
+                        <StackPanel Grid.Row="1" Grid.Column="0">
+                        <TextBlock FontSize="15" Margin="0 0 0 10">Ккал</TextBlock>
+                        <TextBox FontSize="15" IsEnabled="False" 
+                                  MaxLength="3"
+                         Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0" Name="TextBoxCaloriesIn100G"></TextBox>
+                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="1">
-                        <TextBlock>Жиры</TextBlock>
-                        <TextBox IsEnabled="False" Name="TextBoxFat"></TextBox>
+                        <TextBlock Margin="0 0 0 10" FontSize="15">Вес</TextBlock>
+                        <TextBox FontSize="15" 
+                                 MaxLength="4"
+                         Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0"
+                                 TextChanged="TextBox100g_TextChanged" Name="TextBox100g" PreviewTextInput="TextBox100g_PreviewTextInput"></TextBox>
+                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Grid.Column="2">
-                        <TextBlock>Углеводы</TextBlock>
-                        <TextBox IsEnabled="False" Name="TextBoxCarbohydrates"></TextBox>
+                        <TextBlock Margin="0 0 0 10" FontSize="15">Прием пищи</TextBlock>
+                        <ComboBox FontSize="15" 
+              Name="TextBoxMeal"></ComboBox>
+                   
                     </StackPanel>
 
-                    <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
-                        <TextBlock>Дата</TextBlock>
-                        <DatePicker IsEnabled="False" Name="DataToday"></DatePicker>
+                    <StackPanel Grid.Row="2" Grid.Column="0">
+                        <TextBlock Margin="0 10 0 10" FontSize="15">Белки</TextBlock>
+                        <TextBox MaxLength="4"
+                         Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0" FontSize="15" IsEnabled="False" Name="TextBoxSquirrels"></TextBox>
+                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
                     </StackPanel>
 
-                    <Button Name="ButtonAddDaily" Click="ButtonAddDaily_Click" Grid.Row="3" Grid.ColumnSpan="3">Добавить прием</Button>
+                    <StackPanel Grid.Row="2" Grid.Column="1">
+                        <TextBlock Margin="0 10 0 10" FontSize="15">Жиры</TextBlock>
+                        <TextBox FontSize="15" 
+                                 MaxLength="4"
+                         Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0" IsEnabled="False" Name="TextBoxFat"></TextBox>
+                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2" Grid.Column="2">
+                        <TextBlock Margin="0 10 0 10" FontSize="15">Углеводы</TextBlock>
+                        <TextBox FontSize="15" MaxLength="4"
+                         Background="Transparent"
+                         Foreground="Black"
+                         BorderThickness="0"  IsEnabled="False" Name="TextBoxCarbohydrates"></TextBox>
+                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
+                    </StackPanel>
+
+                    <StackPanel  Grid.Row="3" Grid.ColumnSpan="3">
+                        <TextBlock Margin="0 10 0 10" FontSize="15">Дата</TextBlock>
+                        <DatePicker Margin="0 0 0 10" FontSize="15" IsEnabled="False" Name="DataToday"></DatePicker>
+                    </StackPanel>
+
+                    <Button FontSize="25" Margin="10" Name="ButtonAddDaily" Click="ButtonAddDaily_Click" Grid.Row="4" Grid.ColumnSpan="3">Добавить прием</Button>
 
                 </Grid>
                 
