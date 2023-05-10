@@ -274,6 +274,14 @@
             <Setter Property="Visibility" Value="{Binding Path=Tag, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"></Setter>
         </Style>
 
+        <Style x:Key="menuButtonIcon2" TargetType="Icon:PackIconMaterial">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="0 0 23 0 "></Setter>
+            <Setter Property="Kind" Value="ChevronRight"></Setter>
+         
+            <Setter Property="Visibility" Value="Visible"></Setter>
+        </Style>
+
         <Style x:Key="menuButtonIconExit" TargetType="Icon:PackIconMaterial">
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
             <Setter Property="Margin" Value="0 0 23 0 "></Setter>

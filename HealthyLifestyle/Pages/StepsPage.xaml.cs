@@ -34,7 +34,11 @@ namespace HealthyLifestyle.Pages
             TextTitleRecipes.Text = recipes1.Title;
             TextDescriptionRecipes.Text = recipes1.Description;
             TextMinutesRecipes.Text = "Время приготовления " + Convert.ToString(recipes1.MinutesOfCooking) + " мин.";
-            TextComment.Text = recipes1.Comment;
+            if (recipes1.Comment != null)
+            {
+                TextComment.Visibility = Visibility.Visible;
+                TextComment.Text = recipes1.Comment;
+            }
 
             List<Steps> ad = DB.entities.Steps.Where(x => x.RecipeId == recipes1.RecipeId).ToList();
             ListSteps.ItemsSource = ad.ToList();

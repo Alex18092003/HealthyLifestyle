@@ -1,6 +1,7 @@
 ﻿<Page x:Class="HealthyLifestyle.Pages.HomePageWithCalories"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HealthyLifestyle.Pages"
@@ -9,18 +10,114 @@
        d:DesignHeight="800" d:DesignWidth="1000"
      >
 
+    <ScrollViewer   VerticalScrollBarVisibility="Hidden">
         <Grid>
-        <StackPanel>
-            <TextBlock  FontSize="25"  >Вы съели</TextBlock>
-            <Border Padding="10" CornerRadius="20" BorderThickness="1" BorderBrush="#FF76E383" Background="{Binding brush}">
-                <TextBlock  FontSize="25" Name="CaloriesDay" ></TextBlock>
-            </Border>
-                
-            <TextBlock  FontSize="25"  >из</TextBlock>
-            <TextBlock  FontSize="25" Name="TextBlockCalories" ></TextBlock>
-            <TextBlock Name="HintText" Visibility="Collapsed"></TextBlock>
+            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition  Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25"  >Вы съели</TextBlock>
+            <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25" Name="CaloriesDay" ></TextBlock>
+            <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25"  >из</TextBlock>
+            <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25" Name="TextBlockCalories" ></TextBlock>
+                <TextBlock Margin="0 20 0 0" FontSize="20" HorizontalAlignment="Center" Foreground="Red" Name="HintText" Visibility="Collapsed"></TextBlock>
         </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="0">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 15 100 0 ">
+                <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25">Завтрак</TextBlock>
+                <TextBlock x:Name="Zavtrac" Margin="20 20 0 0" HorizontalAlignment="Center" FontSize="25"></TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 15 100 0 ">
+                <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25">Обед</TextBlock>
+                <TextBlock x:Name="Obed" Margin="20 20 0 0" HorizontalAlignment="Center" FontSize="25"></TextBlock>
+            </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 15 100 0 ">
+                <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25">Ужин</TextBlock>
+                <TextBlock x:Name="Yzhin" Margin="20 20 0 0" HorizontalAlignment="Center" FontSize="25"></TextBlock>
+            </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 15 100 0 ">
+                <TextBlock Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="25">Перекус</TextBlock>
+                <TextBlock Name="Perecys"  Margin="20 20 0 0" HorizontalAlignment="Right" FontSize="25"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0 10 0 0">
+                <Grid.Background>
+                    <!--<Brush Opacity="1"  >#274025</Brush>-->
+                    <SolidColorBrush Color="#274025" Opacity="0.7"></SolidColorBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+             
+            </Grid.RowDefinitions>
+
+            <TextBlock Margin="0 10" FontSize="30" FontWeight="Bold" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" HorizontalAlignment="Center">Может быть интересно</TextBlock>
+            <StackPanel Grid.Row="1">
+                <Button Margin="20 0 20 40"    Name="ButtonFAQ1" Click="ButtonFAQ1_Click">
+                    <Grid>
+                        <TextBlock Name="TextPersonalAccountIcon"   HorizontalAlignment="Left" >
+                      Как расчитывается суточная норма?
+                        </TextBlock>
+                        <Icon:PackIconMaterial Margin="530 0 0 0" Name="PersonalAccountIcon"  Style="{StaticResource menuButtonIcon2}" ></Icon:PackIconMaterial>
+                    </Grid>
+                </Button>
+                    <TextBlock LineHeight="40" Margin="20 0 10 20 " FontSize="25" TextWrapping="Wrap" Name="TextFAQ1" Visibility="Collapsed"></TextBlock>
+
+                    <Button Margin="20 0 20 40"    Name="ButtonFAQ3" Click="ButtonFAQ3_Click">
+                        <Grid>
+                            <TextBlock    HorizontalAlignment="Left" >
+                      От чего ещё зависит суточная норма калорий?
+                            </TextBlock>
+                            <Icon:PackIconMaterial Margin="675 0 0 0"  Style="{StaticResource menuButtonIcon2}" ></Icon:PackIconMaterial>
+                        </Grid>
+                    </Button>
+                    <TextBlock LineHeight="40" Margin="20 0 10 20 " FontSize="25" TextWrapping="Wrap" Name="TextFAQ3" Visibility="Collapsed"></TextBlock>
+
+                    <Button Margin="20 0 20 40"    Name="ButtonFAQ4" Click="ButtonFAQ4_Click">
+                        <Grid>
+                            <TextBlock    HorizontalAlignment="Left" >
+                      Что лежит в основе ЗОЖ?
+                            </TextBlock>
+                            <Icon:PackIconMaterial  Margin="370 0 0 0" Style="{StaticResource menuButtonIcon2}" ></Icon:PackIconMaterial>
+                        </Grid>
+                    </Button>
+                    <TextBlock LineHeight="40" Margin="20 0 10 20 " FontSize="25" TextWrapping="Wrap" Name="TextFAQ4" Visibility="Collapsed"></TextBlock>
+
+                    <Button Margin="20 0 20 40"    Name="ButtonFAQ5" Click="ButtonFAQ5_Click">
+                        <Grid>
+                            <TextBlock    HorizontalAlignment="Left" >
+                      Чем полезен ЗОЖ?
+                            </TextBlock>
+                            <Icon:PackIconMaterial Margin="260 0 0 0"  Style="{StaticResource menuButtonIcon2}" ></Icon:PackIconMaterial>
+                        </Grid>
+                    </Button>
+                    <TextBlock LineHeight="40" Margin="20 0 10 20 " FontSize="25" TextWrapping="Wrap" Name="TextFAQ5" Visibility="Collapsed"></TextBlock>
+
+                    <Button  Margin="20 0 20 40"   Name="ButtonFAQ2" Click="ButtonFAQ2_Click">
+                        <Grid>
+                            <TextBlock Name="TextPersonalAccountIcn"   HorizontalAlignment="Left" >
+                      Что такое норма калорий?
+                            </TextBlock>
+                            <Icon:PackIconMaterial Margin="390 0 0 0" Name="PersonalAccountIco"  Style="{StaticResource menuButtonIcon2}" ></Icon:PackIconMaterial>
+                        </Grid>
+                    </Button>
+                    <TextBlock  Margin="20 0 10 50 " FontSize="25" TextWrapping="Wrap" Name="TextFAQ2" LineHeight="40" Visibility="Collapsed"></TextBlock>
+                </StackPanel>
+            </Grid>
        
     </Grid>
+    </ScrollViewer>
 
 </Page>

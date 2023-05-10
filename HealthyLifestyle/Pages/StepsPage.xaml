@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:local="clr-namespace:HealthyLifestyle.Pages"
       mc:Ignorable="d" 
-  Background="White" 
+  Background="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden"
         d:DesignHeight="800" d:DesignWidth="1000"
      >
     
@@ -13,63 +13,65 @@
         <BitmapImage x:Key="defaultImage" UriSource="../Resources/Log.png"/>
     </Page.Resources>
 
-        <ScrollViewer  VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible">
-            <Grid >
-            <Grid.Background>
-                <!--<Brush Opacity="1"  >#274025</Brush>-->
-                <SolidColorBrush Color="#274025" Opacity="0.7"></SolidColorBrush>
-            </Grid.Background>
-            <Grid.RowDefinitions>
+    <ScrollViewer   VerticalScrollBarVisibility="Hidden">
+        
+  
+        <Grid >
+        <Grid.Background>
+            <!--<Brush Opacity="1"  >#274025</Brush>-->
+            <SolidColorBrush Color="#274025" Opacity="0.7"></SolidColorBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="2*"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
 
-            <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Margin="20 0 20 0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="2*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
 
-                <StackPanel  Grid.ColumnSpan="2" Orientation="Vertical">
-                    <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" Margin="0 20 0 20" HorizontalAlignment="Center" FontSize="30" Name="TextTitleRecipes" TextWrapping="Wrap"></TextBlock>
+            <StackPanel  Grid.ColumnSpan="2" Orientation="Vertical">
+                <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" Margin="0 20 0 20" HorizontalAlignment="Center" FontSize="30" Name="TextTitleRecipes" TextWrapping="Wrap"></TextBlock>
 
 
-                    <Border Margin="10,20,10,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="30"  Direction="0"/>
-                        </Border.Effect>
-                        <StackPanel>
-                            <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" Margin="10 10 10 0" FontSize="20"  HorizontalAlignment="Center">Описание рецепта</TextBlock>
-                        <TextBlock FontSize="15" Margin="10 0 10 10" Name="TextDescriptionRecipes"  TextWrapping="Wrap"></TextBlock>
-                            <TextBlock FontSize="15" Margin="10 10 10 0" TextWrapping="Wrap"  Name="TextComment"  ></TextBlock>
-                        </StackPanel>
-                    </Border>
-                   
-
-                    <StackPanel Margin="10 20 0 20" Orientation="Horizontal">
-                       
-                        <TextBlock  FontSize="20" Foreground="White" Name="TextMinutesRecipes" ></TextBlock>
-                      
+                <Border Margin="10,20,10,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="30"  Direction="0"/>
+                    </Border.Effect>
+                    <StackPanel>
+                        <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold" Margin="10 10 10 0" FontSize="20"  HorizontalAlignment="Center">Описание рецепта</TextBlock>
+                        <TextBlock FontSize="15" Margin="10 0 0 10" Name="TextDescriptionRecipes"  TextWrapping="WrapWithOverflow"></TextBlock>
+                        <TextBlock FontSize="15" Margin="10 10 10 0" TextWrapping="Wrap"  Name="TextComment" Visibility="Collapsed" ></TextBlock>
                     </StackPanel>
-                   
-                   
-                </StackPanel>
-            </Grid>
+                </Border>
 
-            <Border Margin="200,20,200,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30"  Direction="0"/>
-                </Border.Effect>
-                <StackPanel>
-                    <TextBlock Margin="10 10 10 0" FontSize="20" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold">Ингредиенты</TextBlock>
-                <ListView Margin="15" Grid.Column="1" Name="ListIngredientsForRecepes" Background="Transparent" BorderThickness="0" >
+
+                <StackPanel Margin="10 20 0 20" Orientation="Horizontal">
+
+                    <TextBlock  FontSize="20" Foreground="White" Name="TextMinutesRecipes" ></TextBlock>
+
+                </StackPanel>
+
+
+            </StackPanel>
+        </Grid>
+
+        <Border Margin="250,20,250,20" Grid.Row="1" Background="White" CornerRadius="20,20,20,20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30"  Direction="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Margin="10 10 10 0" FontSize="20" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" FontWeight="Bold">Ингредиенты</TextBlock>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Margin="15" Grid.Column="1" Name="ListIngredientsForRecepes" Background="Transparent" BorderThickness="0" >
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Setter Property="Template">
@@ -87,125 +89,124 @@
                                 <Grid >
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="2*"></ColumnDefinition>
-                                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
                                     <StackPanel Grid.Column="0" >
-                                            <TextBlock FontSize="15"  Text="{Binding Ingredients.Title}" Margin="0 0 0 10"></TextBlock>
+                                        <TextBlock FontSize="15"  Text="{Binding Ingredients.Title}" Margin="0 0 0 10"></TextBlock>
                                     </StackPanel>
 
-                                        <StackPanel HorizontalAlignment="Right" Margin="0 0 0 10"  Grid.Column="1" Orientation="Horizontal">
-                                            <TextBlock FontSize="15" Text="{Binding Quantity}"></TextBlock>
-                                            <TextBlock FontSize="15"    Text="{Binding Units}"></TextBlock>
+                                    <StackPanel HorizontalAlignment="Right" Margin="0 0 0 10"  Grid.Column="1" Orientation="Horizontal">
+                                        <TextBlock FontSize="15" Text="{Binding Quantity}"></TextBlock>
+                                        <TextBlock FontSize="15"    Text="{Binding Units}"></TextBlock>
                                     </StackPanel>
-                                    
-                                   
+
+
 
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+            </StackPanel>
+        </Border>
+
+
+        <Border Margin="250,20,250,20" Grid.Row="2" Background="White" CornerRadius="20,20,20,20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30"  Direction="0"/>
+            </Border.Effect>
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" 
+                                   FontWeight="Bold" Margin="0 0 0 10"  FontSize="20">Расчет приема (Измените вес порции)</TextBlock>
                 </StackPanel>
-            </Border>
 
-
-            <Border Margin="150,20,150,20" Grid.Row="2" Background="White" CornerRadius="20,20,20,20">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30"  Direction="0"/>
-                </Border.Effect>
-                <Grid Margin="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="2*"></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
-                        <TextBlock FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa" 
-                                   FontWeight="Bold" Margin="0 0 0 10"  FontSize="20">Расчет приема (Вы можете изменить вес порции)</TextBlock>
-                    </StackPanel>
-
-                        <StackPanel Grid.Row="1" Grid.Column="0">
-                        <TextBlock FontSize="15" Margin="0 0 0 10">Ккал</TextBlock>
-                        <TextBox FontSize="15" IsEnabled="False" 
+                <StackPanel Grid.Row="1" Grid.Column="0">
+                    <TextBlock FontSize="15" Margin="0 0 0 10">Ккал</TextBlock>
+                    <TextBox FontSize="15" IsEnabled="False" 
                                   MaxLength="3"
                          Background="Transparent"
                          Foreground="Black"
                          BorderThickness="0" Name="TextBoxCaloriesIn100G"></TextBox>
-                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
-                    </StackPanel>
+                    <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
+                </StackPanel>
 
-                    <StackPanel Grid.Row="1" Grid.Column="1">
-                        <TextBlock Margin="0 0 0 10" FontSize="15">Вес</TextBlock>
-                        <TextBox FontSize="15" 
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <TextBlock Margin="0 0 0 10" FontSize="15">Вес</TextBlock>
+                    <TextBox FontSize="15" 
                                  MaxLength="4"
                          Background="Transparent"
                          Foreground="Black"
                          BorderThickness="0"
                                  TextChanged="TextBox100g_TextChanged" Name="TextBox100g" PreviewTextInput="TextBox100g_PreviewTextInput"></TextBox>
-                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
-                    </StackPanel>
+                    <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
+                </StackPanel>
 
-                    <StackPanel Grid.Row="1" Grid.Column="2">
-                        <TextBlock Margin="0 0 0 10" FontSize="15">Прием пищи</TextBlock>
-                        <ComboBox FontSize="15" 
+                <StackPanel Grid.Row="1" Grid.Column="2">
+                    <TextBlock Margin="0 0 0 10" FontSize="15">Прием пищи</TextBlock>
+                    <ComboBox FontSize="15" 
               Name="TextBoxMeal"></ComboBox>
-                   
-                    </StackPanel>
 
-                    <StackPanel Grid.Row="2" Grid.Column="0">
-                        <TextBlock Margin="0 10 0 10" FontSize="15">Белки</TextBlock>
-                        <TextBox MaxLength="4"
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="0">
+                    <TextBlock Margin="0 10 0 10" FontSize="15">Белки</TextBlock>
+                    <TextBox MaxLength="4"
                          Background="Transparent"
                          Foreground="Black"
                          BorderThickness="0" FontSize="15" IsEnabled="False" Name="TextBoxSquirrels"></TextBox>
-                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
-                    </StackPanel>
+                    <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
+                </StackPanel>
 
-                    <StackPanel Grid.Row="2" Grid.Column="1">
-                        <TextBlock Margin="0 10 0 10" FontSize="15">Жиры</TextBlock>
-                        <TextBox FontSize="15" 
+                <StackPanel Grid.Row="2" Grid.Column="1">
+                    <TextBlock Margin="0 10 0 10" FontSize="15">Жиры</TextBlock>
+                    <TextBox FontSize="15" 
                                  MaxLength="4"
                          Background="Transparent"
                          Foreground="Black"
                          BorderThickness="0" IsEnabled="False" Name="TextBoxFat"></TextBox>
-                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
-                    </StackPanel>
+                    <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
+                </StackPanel>
 
-                    <StackPanel Grid.Row="2" Grid.Column="2">
-                        <TextBlock Margin="0 10 0 10" FontSize="15">Углеводы</TextBlock>
-                        <TextBox FontSize="15" MaxLength="4"
+                <StackPanel Grid.Row="2" Grid.Column="2">
+                    <TextBlock Margin="0 10 0 10" FontSize="15">Углеводы</TextBlock>
+                    <TextBox FontSize="15" MaxLength="4"
                          Background="Transparent"
                          Foreground="Black"
                          BorderThickness="0"  IsEnabled="False" Name="TextBoxCarbohydrates"></TextBox>
-                        <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
-                    </StackPanel>
+                    <Border Margin="0,0,30,0"  Height="2" Background="#274025"></Border>
+                </StackPanel>
 
-                    <StackPanel  Grid.Row="3" Grid.ColumnSpan="3">
-                        <TextBlock Margin="0 10 0 10" FontSize="15">Дата</TextBlock>
-                        <DatePicker Margin="0 0 0 10" FontSize="15" IsEnabled="False" Name="DataToday"></DatePicker>
-                    </StackPanel>
+                <StackPanel  Grid.Row="3" Grid.ColumnSpan="3">
+                    <TextBlock Margin="0 10 0 10" FontSize="15">Дата</TextBlock>
+                    <DatePicker Margin="0 0 0 10" FontSize="15" IsEnabled="False" Name="DataToday"></DatePicker>
+                </StackPanel>
 
-                    <Button FontSize="25" Margin="10" Name="ButtonAddDaily" Click="ButtonAddDaily_Click" Grid.Row="4" Grid.ColumnSpan="3">Добавить прием</Button>
+                <Button FontSize="25" Margin="10" Name="ButtonAddDaily" Click="ButtonAddDaily_Click" Grid.Row="4" Grid.ColumnSpan="3">Добавить прием</Button>
 
-                </Grid>
-                
-            </Border>
+            </Grid>
 
-            <Border Margin="10" Grid.Row="3" Background="White" CornerRadius="20,20,20,20">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30"  Direction="0"/>
-                </Border.Effect>
-            <Grid Grid.Row="2">
-                    <ListView Margin="15" Background="Transparent" BorderThickness="0"  Name="ListSteps">
+        </Border>
+
+
+
+            <Grid Margin="180 20 180 20" Grid.Row="3" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <TextBlock Foreground="White" FontSize="30" FontWeight="Bold" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa">Пошаговое приготовление</TextBlock>    
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="15" Background="Transparent" BorderThickness="0"  Name="ListSteps">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Setter Property="Template">
@@ -219,22 +220,30 @@
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Border>
+                                <Border Margin="0 30 0 0" Padding="20" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden"  Background="White" CornerRadius="20,20,20,20">
+                               
                                     <Grid >
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding StepNomen}"></TextBlock>
-                                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap"></TextBlock>
-                                            <Image Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="150" Height="100"></Image>
-                                        </StackPanel>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"> </ColumnDefinition>
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                             
+                                        
+                                    <StackPanel Grid.Column="0" Margin="0 0 10 0">
+
+                                        <TextBlock Margin="0 10 0 20" FontSize="20" FontWeight="Bold" Text="{Binding StepNomen, StringFormat={}Шаг {0}}" FontFamily="/HealthyLifestyle;component/Fonts/#Comfortaa"></TextBlock>
+                                        <TextBlock Margin="0 0 0 10"  FontSize="15" Text="{Binding Description}" TextWrapping="WrapWithOverflow"></TextBlock>
+             
+                                    </StackPanel>
+                                        <Image Grid.Column="1" Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}" Width="300" Height="300"></Image>
+                                 
                                 </Grid>
                             </Border>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            </Border>
-            
-        </Grid>
+ 
+    </Grid>
     </ScrollViewer>
-
 </Page>

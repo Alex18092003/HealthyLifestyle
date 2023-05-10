@@ -372,6 +372,7 @@
     <Resource Include="Images\photo_2023-04-17_16-49-28-1024x1024.jpg" />
     <Resource Include="Images\photo_2023-04-17_16-49-32-1024x1024.jpg" />
     <Resource Include="Images\photo_2023-04-17_16-49-40.jpg" />
+    <Resource Include="Images\photo_2022-08-29_12-48-55-1024x1024.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

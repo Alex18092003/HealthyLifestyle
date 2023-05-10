@@ -25,6 +25,12 @@ namespace HealthyLifestyle.Pages
             ListDiaryLunch.ItemsSource = dailyRation.Where(x => x.MealId == 2).ToList();
             ListDiaryDinner.ItemsSource = dailyRation.Where(x => x.MealId == 4).ToList();
             ListDiarySnack.ItemsSource = dailyRation.Where(x => x.MealId == 3).ToList();
+
+
+            ButtonEat1.Style = FindResource("menuButtonActiv") as Style;
+            ButtonEat2.Style = FindResource("menuButtonActiv") as Style;
+            ButtonEat3.Style = FindResource("menuButtonActiv") as Style;
+            ButtonEat4.Style = FindResource("menuButtonActiv") as Style;
         }
 
         int s;
@@ -73,6 +79,70 @@ namespace HealthyLifestyle.Pages
             catch
             {
                 MessageBox.Show("При удаление товара возникла ошибка");
+            }
+        }
+
+        private void ButtonEat1_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListDiaryBreakfast.Visibility != Visibility.Visible)
+            {
+                ButtonEat1.Style = FindResource("menuButtonActiv") as Style;
+                ListDiaryBreakfast.Visibility = Visibility.Visible;
+               
+            }
+            else
+            {
+                ButtonEat1.Style = FindResource("menuButton") as Style;
+                ListDiaryBreakfast.Visibility = Visibility.Collapsed;
+               
+            }
+        }
+
+        private void ButtonEat2_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListDiaryLunch.Visibility != Visibility.Visible)
+            {
+              
+                ListDiaryLunch.Visibility = Visibility.Visible;
+                ButtonEat2.Style = FindResource("menuButtonActiv") as Style;
+            }
+            else
+            {
+                ButtonEat2.Style = FindResource("menuButton") as Style;
+                ListDiaryLunch.Visibility = Visibility.Collapsed;
+               
+            }
+        }
+
+        private void ButtonEat3_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListDiaryDinner.Visibility != Visibility.Visible)
+            {
+                ButtonEat3.Style = FindResource("menuButtonActiv") as Style;
+                ListDiaryDinner.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                ButtonEat3.Style = FindResource("menuButton") as Style;
+                ListDiaryDinner.Visibility = Visibility.Collapsed;
+               
+            }
+        }
+
+        private void ButtonEat4_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListDiarySnack.Visibility != Visibility.Visible)
+            {
+                ButtonEat4.Style = FindResource("menuButtonActiv") as Style;
+                ListDiarySnack.Visibility = Visibility.Visible;
+                
+            }
+            else
+            {
+                ButtonEat4.Style = FindResource("menuButton") as Style;
+                ListDiarySnack.Visibility = Visibility.Collapsed;
+               
             }
         }
     }
