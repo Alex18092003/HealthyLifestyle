@@ -20,15 +20,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Vertical">
-            <StackPanel Margin="0 50 0 0 ">
-                <StackPanel Name="ButtonHelp" Orientation="Horizontal" Margin="50 0 0 20" HorizontalAlignment="Left">
-                    <Ellipse Fill="#274025" Width="20" Height="20"></Ellipse>
-                    <Ellipse Margin=" 5 0 " Fill="#ffff" Width="20" Height="20"></Ellipse>
-                    <Ellipse Fill="#274025" Width="20" Height="20"></Ellipse>
-                </StackPanel>
-            </StackPanel>
+           
 
-            <TextBlock  Style="{StaticResource menuTitle}" Margin="5 0 0 30 ">Меню</TextBlock>
+            <TextBlock   Style="{StaticResource menuTitle}" Margin="5 60 0 30 ">Меню</TextBlock>
             
 
             <Button Name="ButtonCounter" Click="ButtonCounter_Click">

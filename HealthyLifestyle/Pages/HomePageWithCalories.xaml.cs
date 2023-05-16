@@ -73,8 +73,19 @@ namespace HealthyLifestyle.Pages
                 }
 
             }
-            int pp = Convert.ToInt32(100 * p / us.CaloriesInDay);
-            Zavtrac.Text = " " + pp + "%";
+            if (dailyRation != null)
+            {
+                int pp2 = Convert.ToInt32(100 * p);
+                if (pp2 != 0)
+                { 
+                int pp = Convert.ToInt32(100 * p / us.CaloriesInDay);
+                Zavtrac.Text = " " + pp + "%";
+                }
+                else
+                {
+                    Zavtrac.Text = " " + "0" + "%";
+                }
+            }
 
 
             List<DailyRation> d2 = dailyRation.Where(x => x.MealId == 2).ToList();
@@ -87,8 +98,19 @@ namespace HealthyLifestyle.Pages
                 }
 
             }
-            int oo = Convert.ToInt32(100 * o / us.CaloriesInDay);
-            Obed.Text = " " + oo + "%";
+            if (dailyRation != null)
+            {
+                int pp2 = Convert.ToInt32(100 * o);
+                if (pp2 != 0)
+                {
+                    int oo = Convert.ToInt32(100 * o / us.CaloriesInDay);
+                    Obed.Text = " " + oo + "%";
+                }
+                else
+                {
+                    Obed.Text = " " +"0" + "%";
+                }
+            }
 
             List<DailyRation> d4 = dailyRation.Where(x => x.MealId == 4).ToList();
             double y = 0;
@@ -100,8 +122,19 @@ namespace HealthyLifestyle.Pages
                 }
 
             }
-            int yy = Convert.ToInt32(100 * y / us.CaloriesInDay);
-            Yzhin.Text = " " + yy + "%";
+            if (dailyRation != null)
+            {
+                int pp2 = Convert.ToInt32(100 * y);
+                if (pp2 != 0)
+                {
+                    int yy = Convert.ToInt32(100 * y / us.CaloriesInDay);
+                    Yzhin.Text = " " + yy + "%";
+                }
+                else
+                {
+                    Yzhin.Text = " " + "0" + "%";
+                }
+            }
 
             List<DailyRation> d3 = dailyRation.Where(x => x.MealId == 3).ToList();
             double t = 0;
@@ -113,8 +146,19 @@ namespace HealthyLifestyle.Pages
                 }
 
             }
-            int tt = Convert.ToInt32(100 * t / us.CaloriesInDay);
-            Perecys.Text = " " + tt + "%";
+            if (dailyRation != null)
+            {
+                int pp2 = Convert.ToInt32(100 * t);
+                if (pp2 != 0)
+                {
+                    int tt = Convert.ToInt32(100 * t / us.CaloriesInDay);
+                    Perecys.Text = " " + tt + "%";
+                }
+                else
+                {
+                    Perecys.Text = " " + "0" + "%";
+                }
+            }
 
 
 
