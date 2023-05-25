@@ -17,15 +17,12 @@ namespace HealthyLifestyle
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Meals()
         {
-            this.DailyRation = new HashSet<DailyRation>();
             this.Recipes = new HashSet<Recipes>();
         }
     
         public int MealId { get; set; }
         public string Title { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DailyRation> DailyRation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Recipes> Recipes { get; set; }
     }

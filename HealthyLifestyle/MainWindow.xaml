@@ -4,6 +4,7 @@
       Background="Transparent"
         Height="800" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MinHeight="800" MinWidth="1200" ResizeMode="NoResize"
+        Icon="/Resources/Icon.ico"
         >
     <Border Background="White"  CornerRadius="40" MouseDown="Border_MouseDown">
     <Grid >

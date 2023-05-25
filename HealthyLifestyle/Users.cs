@@ -14,12 +14,6 @@ namespace HealthyLifestyle
     
     public partial class Users
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
-        {
-            this.DailyRation = new HashSet<DailyRation>();
-        }
-    
         public int UserId { get; set; }
         public Nullable<int> GenderId { get; set; }
         public string Login { get; set; }
@@ -35,8 +29,6 @@ namespace HealthyLifestyle
         public Nullable<double> Carbohydrates { get; set; }
     
         public virtual Activities Activities { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DailyRation> DailyRation { get; set; }
         public virtual Genders Genders { get; set; }
         public virtual Goals Goals { get; set; }
     }

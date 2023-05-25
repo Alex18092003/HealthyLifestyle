@@ -19,6 +19,7 @@ namespace HealthyLifestyle
         public int StepNomen { get; set; }
         public string Description { get; set; }
         public string Photo { get; set; }
+        public string PhotoAnd { get; set; }
     
         public virtual Recipes Recipes { get; set; }
     }

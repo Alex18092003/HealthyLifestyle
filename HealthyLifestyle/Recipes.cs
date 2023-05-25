@@ -17,7 +17,6 @@ namespace HealthyLifestyle
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Recipes()
         {
-            this.DailyRation = new HashSet<DailyRation>();
             this.IngredientForRecipe = new HashSet<IngredientForRecipe>();
             this.Steps = new HashSet<Steps>();
         }
@@ -39,9 +38,8 @@ namespace HealthyLifestyle
         public Nullable<double> Squirrels { get; set; }
         public Nullable<double> Fats { get; set; }
         public Nullable<double> Carbohydrates { get; set; }
+        public string PhotoAnd { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DailyRation> DailyRation { get; set; }
         public virtual Diets Diets { get; set; }
         public virtual Difficulties Difficulties { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
